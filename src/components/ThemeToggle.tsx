@@ -1,0 +1,64 @@
+import { useEffect, useState } from "react";
+
+type Theme = "light" | "dark";
+
+const ThemeToggle = () => {
+  const [theme, setTheme] = useState<Theme>("light");
+
+  // Al montar, leer preferencia guardada o del sistema
+  useEffect(() => {
+    const saved = localStorage.getItem("theme") as Theme | null; // Revisa en la memoria del navegador si el usuario ya estuvo en tu web y cambió el tema manualmente antes, si ya eligió "dark", devuelve "dark". Si es la primera vez que entra, devuelve null
+    const preferred = window.matchMedia("(prefers-color-schema:dark)").matches ? "dark" : "light"; // ¿Qué es window.matchMedia? Es una función de JavaScript que permite preguntarle al Navegador: "¿Qué prefiere el usuario en la configuración de su Sistema Operativo (Windows/Fedora/Android)?" Si el usuario tiene su PC en "Modo Oscuro", devuelve "dark". Si no, devuelve "light". Es una forma de respetar la vista del usuario desde el primer segundo.
+    const initial = saved ?? preferred; // El operador ?? (Nullish Coalescing) elige la primera opción que no sea nula.
+    setTheme(initial);
+    document.documentElement.setAttribute("data-theme", initial); // Accede a la etiqueta <html> de tu Layout y le pone el atributo que definimos en el CSS.
+  }, []);
+
+  const toggle = () => {
+    const next: Theme = theme === "light" ? "dark" : "light";
+    setTheme(next);
+    localStorage.setItem("theme", theme);
+    document.documentElement.setAttribute("data-theme", theme);
+  };
+
+  return (
+    <button
+      onClick={toggle}
+      aria-label="Cambiar tema"
+      className={`relative h-6 w-11 shrink-0 cursor-pointer rounded-full transition-colors duration-300 ${theme === "dark" ? "bg-[#5b9bff]" : "bg-[#1a2332]"} `}
+      //   style={{
+      //     width: "44px",
+      //     height: "24px",
+      //     borderRadius: "100px",
+      //     background: theme === "dark" ? "#5b9bff" : "#1a2332",
+      //     border: "none",
+      //     cursor: "pointer",
+      //     position: "relative",
+      //     transition: "background 0.3s",
+      //     flexShrink: 0,
+      //   }}
+    >
+      <span
+        className={`absolute top-[3px] flex h-[18px] w-[18px] items-center justify-center rounded-full bg-white text-[11px] transition-all duration-250 ${theme === "dark" ? "left-[23px]" : "left-[3px]"}`}
+        // style={{
+        //   position: "absolute",
+        //   top: "3px",
+        //   left: theme === "dark" ? "23px" : "3px",
+        //   width: "18px",
+        //   height: "18px",
+        //   borderRadius: "50%",
+        //   background: "#fff",
+        //   transition: "left 0.25s",
+        //   display: "flex",
+        //   alignItems: "center",
+        //   justifyContent: "center",
+        //   fontSize: "11px",
+        // }}
+      >
+        {theme === "dark" ? "☀️" : "🌙"}
+      </span>
+    </button>
+  );
+};
+
+export default ThemeToggle;
