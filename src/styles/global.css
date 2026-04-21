@@ -1,1 +1,118 @@
 @import "tailwindcss";
+
+/* ── RESET ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Esto hace que cuando hagas clic en un enlace de tu menú (por ejemplo, #proyectos), la página no "salte" de golpe, sino que se deslice suavemente hasta la sección. */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Outfit", system-ui, sans-serif;
+
+  /* Usamos background-image para manejar la imagen de assets */
+  background-image: var(--bg-image);
+  background-color: var(--bg); /* Fallback si la imagen no carga */
+  background-attachment: fixed; /* Hace que la imagen quede quieta mientras el contenido se desliza sobre ella */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), var(--bg-image); /* degradado suave que "oscurezca" o "aclare" un poco la imagen sin perder el diseño */
+
+  color: var(--text);
+  transition:
+    background 0.3s,
+    color 0.3s;
+  min-height: 100vh; /* Asegura que el fondo cubra toda la pantalla incluso si tienes poco contenido en una página.*/
+}
+
+/* ── TOKENS MODO CLARO (default) ── */
+:root {
+  /* Imagen de Assets para Modo Claro */
+  --bg-image: url("../assets/cool-background.png");
+
+  --hero-bg: #d8dce2;
+  --hero-text: #1a2332;
+  --hero-desc: #3d4f63;
+  --hero-icon-border: #1a2332;
+
+  --bg: #ffffff;
+  --bg2: #f4f5f7;
+  --bg3: #ebedf0;
+  --text: #1a2332;
+  --muted: #5a6a7e;
+  --muted2: #8a9ab0;
+
+  --accent: #3a7bd5;
+  --accent-light: #e8f0fc;
+  --accent-border: #b3cef5;
+
+  --green: #059669;
+  --green-bg: #ecfdf5;
+  --amber: #d97706;
+  --amber-bg: #fffbeb;
+
+  --border: #e2e5ea;
+  --border2: #c8cdd6;
+  --card: #ffffff;
+  --tag: #edf0f4;
+  --tag-text: #3d4f63;
+
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.12), 0 16px 40px rgba(0, 0, 0, 0.07);
+}
+
+/* ── TOKENS MODO OSCURO ── */
+[data-theme="dark"] {
+  /* Imagen de Assets para Modo Oscuro */
+  --bg-image: url("../assets/cool-background-dark.png");
+
+  --hero-bg: #0f1117;
+  --hero-text: #e8ecf4;
+  --hero-desc: #8a9ab8;
+  --hero-icon-border: #3a4a60;
+
+  --bg: #0f1117;
+  --bg2: #161b25;
+  --bg3: #1c2230;
+  --text: #e8ecf4;
+  --muted: #7a8aa8;
+  --muted2: #4a5a78;
+
+  --accent: #5b9bff;
+  --accent-light: #1a2540;
+  --accent-border: #2a4070;
+
+  --green: #34d399;
+  --green-bg: #022c22;
+  --amber: #fbbf24;
+  --amber-bg: #1c1400;
+
+  --border: #1e2535;
+  --border2: #2a3548;
+  --card: #161b25;
+  --tag: #1a2535;
+  --tag-text: #8a9ab8;
+
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.25);
+  --shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.5), 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* ── UTILIDADES GLOBALES ── */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
