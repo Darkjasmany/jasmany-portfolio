@@ -1,4 +1,6 @@
 ---
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
 import "../styles/global.css";
 interface Props {
   title?: string;
@@ -31,6 +33,11 @@ const {
     <link rel="stylesheet" />
   </head>
   <body>
-    <slot />
+    <Nav />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <!-- <slot /> -->
+    <Footer />
   </body>
 </html>

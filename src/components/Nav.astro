@@ -1,0 +1,162 @@
+---
+import ThemeToggle from "./ThemeToggle";
+---
+
+<header
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-[500] h-[70px] flex justify-center items-center bg-[var(--hero-bg)]/30 backdrop-blur-md border-b border-transparent transition-all duration-300"
+>
+  <div class="w-full max-w-[1200px] mx-auto px-6 md:px-12 flex items-center justify-between">
+    <!-- Logo -->
+    <a
+      href="/"
+      class="text-3xl font-black tracking-tighter text-[var(--hero-text)] transition-transform hover:scale-105 select-none"
+    >
+      Jasmany<span class="text-[var(--accent)] opacity-50">Dev</span>
+    </a>
+
+    <!-- Desktop nav + toggle -->
+    <div class="flex items-center gap-6">
+      <nav class="hidden lg:flex items-center gap-7" aria-label="Navegación principal">
+        <a
+          href="#inicio"
+          class="text-[15px] font-bold text-[var(--hero-text)] opacity-70 hover:opacity-100 transition-opacity"
+        >
+          Inicio
+        </a>
+        <a
+          href="#sobre-mi"
+          class="text-[15px] font-bold text-[var(--hero-text)] opacity-70 hover:opacity-100 transition-opacity"
+        >
+          Sobre mí
+        </a>
+        <a
+          href="#stack"
+          class="text-[15px] font-bold text-[var(--hero-text)] opacity-70 hover:opacity-100 transition-opacity"
+        >
+          Stack
+        </a>
+        <a
+          href="#proyectos"
+          class="text-[15px] font-bold text-[var(--hero-text)] opacity-70 hover:opacity-100 transition-opacity"
+        >
+          Proyectos
+        </a>
+        <a
+          href="#contacto"
+          class="text-[15px] font-bold text-[var(--hero-text)] opacity-70 hover:opacity-100 transition-opacity"
+        >
+          Contacto
+        </a>
+      </nav>
+
+      <!-- Toggle -->
+      <div class="flex items-center pl-4">
+        <ThemeToggle client:load />
+      </div>
+
+      <!-- Hamburguesa -->
+      <button id="menu-btn" class="lg:hidden p-2 text-[var(--hero-text)]" aria-label="Abrir menú">
+        <svg
+          id="icon-open"
+          xmlns="http://www.w3.org/2000/svg"
+          width="26"
+          height="26"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="4" x2="20" y1="6" y2="6"></line>
+          <line x1="4" x2="20" y1="12" y2="12"></line>
+          <line x1="4" x2="20" y1="18" y2="18"></line>
+        </svg>
+        <svg
+          id="icon-close"
+          class="hidden"
+          xmlns="http://www.w3.org/2000/svg"
+          width="26"
+          height="26"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M18 6 6 18"></path>
+          <path d="m6 6 12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Menú móvil -->
+  <div
+    id="mobile-menu"
+    class="hidden absolute top-[70px] left-0 w-full
+           bg-[var(--hero-bg)] border-b border-[var(--border)]
+           px-6 py-5 shadow-lg lg:hidden"
+  >
+    <nav class="flex flex-col gap-5">
+      <a
+        href="/"
+        class="mobile-link text-lg font-bold text-[var(--hero-text)] opacity-80 hover:opacity-100 transition-opacity"
+        >Inicio</a
+      >
+      <a
+        href="#sobre-mi"
+        class="mobile-link text-lg font-bold text-[var(--hero-text)] opacity-80 hover:opacity-100 transition-opacity"
+        >Sobre mí</a
+      >
+      <a
+        href="#stack"
+        class="mobile-link text-lg font-bold text-[var(--hero-text)] opacity-80 hover:opacity-100 transition-opacity"
+        >Stack</a
+      >
+      <a
+        href="#proyectos"
+        class="mobile-link text-lg font-bold text-[var(--hero-text)] opacity-80 hover:opacity-100 transition-opacity"
+        >Proyectos</a
+      >
+      <a
+        href="#contacto"
+        class="mobile-link text-lg font-bold text-[var(--hero-text)] opacity-80 hover:opacity-100 transition-opacity"
+        >Contacto</a
+      >
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("menu-btn")!;
+  const menu = document.getElementById("mobile-menu")!;
+  const iconOpen = document.getElementById("icon-open")!;
+  const iconClose = document.getElementById("icon-close")!;
+  const navbar = document.getElementById("navbar")!;
+
+  btn.addEventListener("click", () => {
+    const isOpen = menu.style.display === "flex";
+    menu.style.display = isOpen ? "none" : "flex";
+    menu.style.flexDirection = "column";
+    iconOpen.classList.toggle("hidden", !isOpen);
+    iconClose.classList.toggle("hidden", isOpen);
+  });
+
+  document.querySelectorAll(".mobile-link").forEach(link => {
+    link.addEventListener("click", () => {
+      menu.style.display = "none";
+      iconOpen.classList.remove("hidden");
+      iconClose.classList.add("hidden");
+    });
+  });
+
+  window.addEventListener("scroll", () => {
+    const isScrolled = window.scrollY > 20;
+    navbar.classList.toggle("bg-[var(--bg)]/90", isScrolled);
+    navbar.classList.toggle("border-[var(--border)]", isScrolled);
+    navbar.classList.toggle("shadow-sm", isScrolled);
+  });
+</script>
