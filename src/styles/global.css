@@ -12,6 +12,8 @@
 /* Esto hace que cuando hagas clic en un enlace de tu menú (por ejemplo, #proyectos), la página no "salte" de golpe, sino que se deslice suavemente hasta la sección. */
 html {
   scroll-behavior: smooth;
+  /* Esto compensa la altura del nav cuando saltas a una sección */
+  scroll-padding-top: 70px;
 }
 
 /* html,
