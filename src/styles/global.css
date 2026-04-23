@@ -125,16 +125,47 @@ a {
   color: inherit;
 }
 
+/* FLOAT */
 @keyframes float {
   0%,
   100% {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-12px);
+    transform: translateY(-14px);
   }
 }
 
 .animate-float {
-  animation: float 4s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ENTRADA SUAVE */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+#card {
+  animation: reveal 0.8s ease-out;
+  transform-style: preserve-3d;
+}
+
+/* PARALLAX CAPAS */
+.layer-back {
+  transform: translateZ(-40px) scale(1.05);
+}
+
+.layer-mid {
+  transform: translateZ(-20px) scale(1.03);
+}
+
+.layer-front {
+  transform: translateZ(0);
 }
