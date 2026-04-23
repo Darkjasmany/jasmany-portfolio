@@ -16,10 +16,10 @@ html {
   scroll-padding-top: 70px;
 }
 
-/* html,
+html,
 body {
   height: 100%;
-} */
+}
 
 body {
   font-family: "Outfit", system-ui, sans-serif;
@@ -31,16 +31,15 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), var(--bg-image); /* degradado suave que "oscurezca" o "aclare" un poco la imagen sin perder el diseño */
+  background-image: var(--bg-image);
 
   color: var(--text);
   transition:
     background 0.3s,
     color 0.3s;
   min-height: 100vh; /* Asegura que el fondo cubra toda la pantalla incluso si tienes poco contenido en una página.*/
-  /* display: flex;
-  flex-direction: column; */
+  display: flex;
+  flex-direction: column;
 }
 
 /* ── TOKENS MODO CLARO (default) ── */
@@ -124,4 +123,18 @@ img {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
 }
