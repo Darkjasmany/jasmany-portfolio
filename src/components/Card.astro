@@ -51,3 +51,70 @@ import { Image } from "astro:assets";
     </div>
   </div>
 </div>
+
+<script>
+  const card = document.getElementById("card");
+  const glow = document.getElementById("glow");
+  const shine = document.getElementById("shine");
+  const layers = document.querySelectorAll(".layer");
+
+  card.addEventListener("mousemove", e => {
+    const rect = card.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = -(y - centerY) / 12;
+    const rotateY = (x - centerX) / 12;
+
+    card.style.transform = `
+    rotateX(${rotateX}deg)
+    rotateY(${rotateY}deg)
+    scale(1.04)
+  `;
+
+    // PARALLAX REAL
+    layers.forEach((layer, i) => {
+      const depth = (i + 1) * 10;
+      layer.style.transform = `
+      translateZ(${-depth}px)
+      translateX(${(x - centerX) / (20 + i * 10)}px)
+      translateY(${(y - centerY) / (20 + i * 10)}px)
+    `;
+    });
+
+    // GLOW
+    glow.style.opacity = "1";
+    glow.style.background = `
+    radial-gradient(circle at ${x}px ${y}px,
+    rgba(0,163,255,0.25),
+    transparent 60%)
+  `;
+
+    // SHINE (efecto vidrio)
+    shine.style.opacity = "0.6";
+    shine.style.background = `
+    linear-gradient(
+      ${120 + rotateY * 2}deg,
+      rgba(255,255,255,0.25) 0%,
+      rgba(255,255,255,0.05) 40%,
+      transparent 60%
+    )
+  `;
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "rotateX(0) rotateY(0) scale(1)";
+
+    layers.forEach((layer, i) => {
+      const depth = (i + 1) * 10;
+      layer.style.transform = `translateZ(${-depth}px)`;
+    });
+
+    glow.style.opacity = "0";
+    shine.style.opacity = "0";
+  });
+</script>
