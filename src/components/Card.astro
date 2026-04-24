@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+// Importa la imagen localmente (asumiendo que está en src/assets/)
+// Si está en public/, usa "/Jasma.png" directamente en el src del componente
+// import jasmaImage from "../assets/Jasma.png";
+---
+
+<div class="hidden lg:block perspective-[1400px] animate-float">
+  <div
+    id="card"
+    class="relative w-[300px] h-[360px] flex-shrink-0
+           animate-float transition-transform duration-300 ease-out"
+  >
+    <!-- Capa fondo profunda -->
+    <div class="layer layer-back absolute inset-0 rounded-2xl bg-black/20"></div>
+
+    <!-- Capa fondo media -->
+    <div class="layer layer-mid absolute inset-0 rounded-2xl bg-black/10"></div>
+
+    <!-- Tarjeta principal -->
+    <div
+      class="layer layer-front relative z-10 w-full h-full rounded-2xl overflow-hidden
+             bg-gradient-to-br from-[#c8d0dc] to-[#a8b4c4]
+             border border-white/30
+             shadow-[0_25px_70px_rgba(0,0,0,0.25)]
+             backdrop-blur-md"
+    >
+      <!-- <img src="/Jasma.png" alt="Jasmany Franco" class="w-full h-full object-cover object-top" /> -->
+      <Image
+        src={"/Jasma.png"}
+        alt="Jasmany Franco"
+        width={300}
+        height={360}
+        format="avif"
+        class="w-full h-full object-cover object-top"
+      />
+
+      <!-- Glow dinámico -->
+      <div id="glow" class="pointer-events-none absolute inset-0 opacity-0"></div>
+
+      <!-- Reflejo tipo vidrio -->
+      <div id="shine" class="pointer-events-none absolute inset-0 opacity-0"></div>
+
+      <!-- overlay -->
+      <div
+        class="absolute bottom-0 left-0 right-0 py-2 text-center
+               bg-black/40 backdrop-blur-md text-white text-xs font-bold tracking-wide"
+      >
+        📍 Naranjal, Ecuador 🇪🇨
+      </div>
+    </div>
+  </div>
+</div>
