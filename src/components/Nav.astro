@@ -4,53 +4,47 @@ import ThemeToggle from "./ThemeToggle";
 
 <header
   id="navbar"
-  class="fixed top-0 left-0 right-0 z-[500] h-[70px] flex justify-center items-center bg-[var(--hero-bg)]/30 backdrop-blur-md border-b border-transparent transition-all duration-300"
+  class="fixed top-0 left-0 right-0 z-500 h-17.5 flex justify-center items-center bg-(--hero-bg)/30 backdrop-blur-md border-b border-transparent transition-all duration-300"
 >
-  <div class="w-full max-w-[1200px] mx-auto px-6 md:px-12 flex items-center justify-between">
+  <div class="w-full max-w-300 mx-auto px-6 md:px-12 flex items-center justify-between">
     <!-- Logo -->
     <a
       href="/"
-      class="text-3xl font-black tracking-tighter text-[var(--hero-text)] transition-transform hover:scale-105 select-none"
+      class="text-3xl font-black tracking-tighter text-(--hero-text) transition-transform hover:scale-105 select-none"
     >
-      <!-- Jasmany<span class="text-[var(--accent)] opacity-50">Dev</span> -->
       Jasmany<span class="text-[#00a3ff]">Dev</span>
     </a>
 
     <!-- Desktop nav + toggle -->
     <div class="flex items-center gap-6">
       <nav class="hidden lg:flex items-center gap-7" aria-label="Navegación principal">
-        <!-- <li class="hidden sm:block"> -->
         <a
           href="#inicio"
-          class="text-[15px] font-bold text-[var(--hero-text)] opacity-70 hover:opacity-100 transition-opacity"
+          class="text-[15px] font-bold text-(--hero-text) opacity-70 hover:opacity-100 transition-opacity"
         >
           Inicio
         </a>
-        <!-- </li> -->
-        <!-- <li class="hidden sm:block"> -->
+
         <a
           href="#stack"
-          class="text-[15px] font-bold text-[var(--hero-text)] opacity-70 hover:opacity-100 transition-opacity"
+          class="text-[15px] font-bold text-(--hero-text) opacity-70 hover:opacity-100 transition-opacity"
         >
           Stack
         </a>
-        <!-- </li> -->
-        <!-- <li class="hidden sm:block"> -->
+
         <a
           href="#proyectos"
-          class="text-[15px] font-bold text-[var(--hero-text)] opacity-70 hover:opacity-100 transition-opacity"
+          class="text-[15px] font-bold text-(--hero-text) opacity-70 hover:opacity-100 transition-opacity"
         >
           Proyectos
         </a>
-        <!-- </li> -->
-        <!-- <li class="hidden sm:block"> -->
+
         <a
           href="#contacto"
-          class="text-[15px] font-bold text-[var(--hero-text)] opacity-70 hover:opacity-100 transition-opacity"
+          class="text-[15px] font-bold text-(--hero-text) opacity-70 hover:opacity-100 transition-opacity"
         >
           Contacto
         </a>
-        <!-- </li> -->
       </nav>
 
       <!-- Toggle -->
@@ -59,7 +53,7 @@ import ThemeToggle from "./ThemeToggle";
       </div>
 
       <!-- Hamburguesa -->
-      <button id="menu-btn" class="lg:hidden p-2 text-[var(--hero-text)]" aria-label="Abrir menú">
+      <button id="menu-btn" class="lg:hidden p-2 text-(--hero-text)" aria-label="Abrir menú">
         <svg
           id="icon-open"
           xmlns="http://www.w3.org/2000/svg"
@@ -99,34 +93,32 @@ import ThemeToggle from "./ThemeToggle";
   <!-- Menú móvil -->
   <div
     id="mobile-menu"
-    class="hidden absolute top-[70px] left-0 w-full
-           bg-[var(--hero-bg)] border-b border-[var(--border)]
-           px-6 py-5 shadow-lg lg:hidden"
+    class="hidden absolute top-17.5 left-0 w-full bg-(--hero-bg) border-b border-(--border) px-6 py-5 shadow-lg lg:hidden cursor-pointer"
   >
     <nav class="flex flex-col gap-5">
       <a
         href="#inicio"
-        class="mobile-link text-lg font-bold text-[var(--hero-text)] opacity-80 hover:opacity-100 transition-opacity"
+        class="mobile-link text-lg font-bold text-(--hero-text) opacity-80 hover:opacity-100 transition-opacity"
         >Inicio</a
       >
       <a
         href="#sobre-mi"
-        class="mobile-link text-lg font-bold text-[var(--hero-text)] opacity-80 hover:opacity-100 transition-opacity"
+        class="mobile-link text-lg font-bold text-(--hero-text) opacity-80 hover:opacity-100 transition-opacity"
         >Sobre mí</a
       >
       <a
         href="#stack"
-        class="mobile-link text-lg font-bold text-[var(--hero-text)] opacity-80 hover:opacity-100 transition-opacity"
+        class="mobile-link text-lg font-bold text-(--hero-text) opacity-80 hover:opacity-100 transition-opacity"
         >Stack</a
       >
       <a
         href="#proyectos"
-        class="mobile-link text-lg font-bold text-[var(--hero-text)] opacity-80 hover:opacity-100 transition-opacity"
+        class="mobile-link text-lg font-bold text-(--hero-text) opacity-80 hover:opacity-100 transition-opacity"
         >Proyectos</a
       >
       <a
         href="#contacto"
-        class="mobile-link text-lg font-bold text-[var(--hero-text)] opacity-80 hover:opacity-100 transition-opacity"
+        class="mobile-link text-lg font-bold text-(--hero-text) opacity-80 hover:opacity-100 transition-opacity"
         >Contacto</a
       >
     </nav>
@@ -137,9 +129,9 @@ import ThemeToggle from "./ThemeToggle";
     id="menu-backdrop"
     class={`
             absolute bg-black/5 backdrop-blur-lg rounded
-            translate-x-[var(--left)] translate-y-[var(--top)]
+            translate-x-(--left) translate-y-(--top)
             left-0 top-0
-            w-[var(--width)] h-[var(--height)]
+            w-(--width) h-(--height)
             transition-all duration-500
             ease-in-out opacity-0 -z-10
     `}
@@ -177,8 +169,8 @@ import ThemeToggle from "./ThemeToggle";
   // 3. Lógica del Scroll
   window.addEventListener("scroll", () => {
     const isScrolled = window.scrollY > 20;
-    navbar.classList.toggle("bg-[var(--bg)]/90", isScrolled);
-    navbar.classList.toggle("border-[var(--border)]", isScrolled);
+    navbar.classList.toggle("bg-(--bg)/90", isScrolled);
+    navbar.classList.toggle("border-(--border)", isScrolled);
     navbar.classList.toggle("shadow-sm", isScrolled);
   });
 
