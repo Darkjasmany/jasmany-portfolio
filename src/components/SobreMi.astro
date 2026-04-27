@@ -1,66 +1,129 @@
-<!-- <section id="sobre-mi" class="w-full py-4 transition-colors duration-300"> -->
-<section
-  id="sobre-mi"
-  class="w-full flex items-center justify-center py-0 transition-colors duration-300"
->
+---
+// src/components/SobreMi.astro
+---
+
+<section id="sobre-mi" class="w-full bg-[var(--bg)] py-16 transition-colors duration-300">
   <div class="max-w-6xl mx-auto px-6 md:px-16 lg:px-24">
-    <!-- Tag -->
-    <div
-      class="flex items-center gap-2 text-[11px] font-extrabold tracking-[2px] uppercase text-[var(--accent)] mb-3"
-    >
-      <span class="w-5 h-0.5 bg-[var(--accent)] rounded-full"></span>
-      Sobre mí
-    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 lg:gap-20 items-start">
+      <!-- IZQUIERDA: texto -->
+      <div>
+        <!-- Nombre + ubicación -->
+        <h2
+          class="text-[clamp(1.8rem,4vw,2.8rem)] font-black tracking-[-1.5px]
+                   leading-[1.1] text-[var(--text)] mb-3"
+        >
+          Jasmany Franco
+        </h2>
 
-    <h2
-      class="text-[clamp(2rem,4vw,3rem)] font-black tracking-[-1.5px] leading-[1.05] text-[var(--text)] mb-12"
-    >
-      El desarrollador<br /> detrás del código
-    </h2>
-
-    <!-- <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-12 lg:gap-16 items-start"> -->
-    <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-12 lg:gap-16 items-start">
-      <!-- Texto -->
-      <div class="space-y-4 text-[15px] text-[var(--muted)] leading-[1.9]">
-        <p>
-          Soy <strong class="text-[var(--text)] font-bold"
-            >Ingeniero en Sistemas Computacionales</strong
+        <!-- Pin Ecuador -->
+        <div class="inline-flex items-center gap-1.5 mb-6">
+          <svg viewBox="0 0 24 24" class="w-4 h-4 fill-[var(--accent)] flex-shrink-0">
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+            ></path>
+          </svg>
+          <span
+            class="text-[13px] font-bold text-white bg-[var(--accent)]
+                       px-2.5 py-0.5 rounded-md"
           >
-          graduado en la Universidad de Guayaquil (Reg. SENESCYT: 1006-2017-1872471), con más de 10 años
-          trabajando en el GAD Municipal de Naranjal como Analista de Sistemas.
-        </p>
-        <p>
-          Tengo sistemas reales en producción:
-          <strong class="text-[var(--text)] font-bold">SelNic</strong>, el sistema de gestión
-          documental que uso día a día en mi trabajo, y estoy terminando <strong
-            class="text-[var(--text)] font-bold">FutbolSystem</strong
-          >, un sistema biométrico para ligas municipales con reconocimiento facial.
-        </p>
-        <p>
-          Me despierto temprano a hacer ejercicios de lógica en
-          <strong class="text-[var(--text)] font-bold">Exercism</strong>, aprendo continuamente y
-          disfruto convertir procesos manuales en soluciones digitales eficientes.
-        </p>
-      </div>
-      <!-- Lista de datos -->
+            Ecuatoriano 🇪🇨
+          </span>
+        </div>
 
-      <div class="space-y-4 text-[15px] text-[var(--muted)] leading-[1.9]">
-        <ul class="mt-6 space-y-3">
-          {
-            [
-              "Naranjal, Guayas, Ecuador 🇪🇨",
-              "Ing. Sistemas — Universidad de Guayaquil",
-              "GAD Municipal Naranjal · Analista de Sistemas desde 2014",
-              "Exercism.io · práctica diaria de algoritmos y lógica",
-              "Inglés técnico · aprendizaje activo",
-            ].map(item => (
-              <li class="flex items-center gap-3 text-[14px]">
-                <span class="w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0" />
-                {item}
-              </li>
-            ))
-          }
-        </ul>
+        <!-- Descripción -->
+        <div class="space-y-4 text-[15px] text-[var(--muted)] leading-[1.85] mb-10">
+          <p>
+            Soy <strong class="text-[var(--text)] font-bold"
+              >Ingeniero en Sistemas Computacionales</strong
+            >
+            graduado en la Universidad de Guayaquil, con más de 10 años como Analista de Sistemas en el
+            GAD Municipal de Naranjal.
+          </p>
+          <p>
+            Tengo sistemas reales en producción:
+            <strong class="text-[var(--text)] font-bold">SelNic</strong>
+            (gestión documental municipal) y
+            <strong class="text-[var(--text)] font-bold">FutbolSystem</strong>
+            (liga municipal con biometría facial). Me despierto temprano a hacer ejercicios de lógica
+            en <strong class="text-[var(--text)] font-bold">Exercism</strong>
+            y disfruto convertir procesos manuales en soluciones digitales eficientes.
+          </p>
+        </div>
+
+        <!-- Stats estilo ervinsantos -->
+        <div class="flex flex-wrap gap-8">
+          <div class="flex items-center gap-3">
+            <div
+              class="w-11 h-11 rounded-full bg-[var(--accent)] flex items-center justify-center flex-shrink-0"
+            >
+              <svg viewBox="0 0 24 24" class="w-5 h-5 fill-white">
+                <path
+                  d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <div class="text-[1.4rem] font-black text-[var(--text)] leading-none">10+</div>
+              <div class="text-[12px] font-semibold text-[var(--muted)] mt-0.5">
+                Años de<br />experiencia
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div
+              class="w-11 h-11 rounded-full bg-[var(--accent)] flex items-center justify-center flex-shrink-0"
+            >
+              <svg viewBox="0 0 24 24" class="w-5 h-5 fill-white">
+                <path
+                  d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <div class="text-[1.4rem] font-black text-[var(--text)] leading-none">2+</div>
+              <div class="text-[12px] font-semibold text-[var(--muted)] mt-0.5">
+                Sistemas en<br />producción
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div
+              class="w-11 h-11 rounded-full bg-[var(--accent)] flex items-center justify-center flex-shrink-0"
+            >
+              <svg viewBox="0 0 24 24" class="w-5 h-5 fill-white">
+                <path
+                  d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <div class="text-[1.4rem] font-black text-[var(--text)] leading-none">Full</div>
+              <div class="text-[12px] font-semibold text-[var(--muted)] mt-0.5">
+                Stack<br />Developer
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DERECHA: ilustración/foto -->
+      <div class="hidden lg:flex items-center justify-center">
+        <div class="w-[340px] h-[340px] relative">
+          <!-- Blob de fondo decorativo -->
+          <div
+            class="absolute inset-0 rounded-[40%_60%_60%_40%/40%_40%_60%_60%]
+                      bg-[var(--accent-light)] opacity-60 blur-sm
+                      animate-[float_6s_ease-in-out_infinite]"
+          >
+          </div>
+          <img
+            src="/Jasma.png"
+            alt="Jasmany Franco"
+            class="relative z-10 w-full h-full object-contain drop-shadow-2xl"
+          />
+        </div>
       </div>
     </div>
   </div>

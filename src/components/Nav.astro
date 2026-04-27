@@ -19,36 +19,38 @@ import ThemeToggle from "./ThemeToggle";
     <!-- Desktop nav + toggle -->
     <div class="flex items-center gap-6">
       <nav class="hidden lg:flex items-center gap-7" aria-label="Navegación principal">
+        <!-- <li class="hidden sm:block"> -->
         <a
           href="#inicio"
           class="text-[15px] font-bold text-[var(--hero-text)] opacity-70 hover:opacity-100 transition-opacity"
         >
           Inicio
         </a>
-        <a
-          href="#sobre-mi"
-          class="text-[15px] font-bold text-[var(--hero-text)] opacity-70 hover:opacity-100 transition-opacity"
-        >
-          Sobre mí
-        </a>
+        <!-- </li> -->
+        <!-- <li class="hidden sm:block"> -->
         <a
           href="#stack"
           class="text-[15px] font-bold text-[var(--hero-text)] opacity-70 hover:opacity-100 transition-opacity"
         >
           Stack
         </a>
+        <!-- </li> -->
+        <!-- <li class="hidden sm:block"> -->
         <a
           href="#proyectos"
           class="text-[15px] font-bold text-[var(--hero-text)] opacity-70 hover:opacity-100 transition-opacity"
         >
           Proyectos
         </a>
+        <!-- </li> -->
+        <!-- <li class="hidden sm:block"> -->
         <a
           href="#contacto"
           class="text-[15px] font-bold text-[var(--hero-text)] opacity-70 hover:opacity-100 transition-opacity"
         >
           Contacto
         </a>
+        <!-- </li> -->
       </nav>
 
       <!-- Toggle -->
@@ -129,15 +131,33 @@ import ThemeToggle from "./ThemeToggle";
       >
     </nav>
   </div>
+
+  <!-- Crear la caja que funcionara como el hover en cada uno de los menus -->
+  <div
+    id="menu-backdrop"
+    class={`
+            absolute bg-black/5 backdrop-blur-lg rounded
+            translate-x-[var(--left)] translate-y-[var(--top)]
+            left-0 top-0
+            w-[var(--width)] h-[var(--height)]
+            transition-all duration-500
+            ease-in-out opacity-0 -z-10
+    `}
+  >
+  </div>
 </header>
 
 <script>
-  const btn = document.getElementById("menu-btn")!;
-  const menu = document.getElementById("mobile-menu")!;
-  const iconOpen = document.getElementById("icon-open")!;
-  const iconClose = document.getElementById("icon-close")!;
-  const navbar = document.getElementById("navbar")!;
+  // 1. Selectores
+  const btn = document.getElementById("menu-btn") as HTMLButtonElement;
+  const menu = document.getElementById("mobile-menu") as HTMLElement;
+  const iconOpen = document.getElementById("icon-open") as HTMLElement;
+  const iconClose = document.getElementById("icon-close") as HTMLElement;
+  const navbar = document.getElementById("navbar") as HTMLElement;
+  const listItems = document.querySelectorAll<HTMLAnchorElement>("#navbar nav a");
+  const menuBackDrop = document.querySelector("#menu-backdrop") as HTMLElement;
 
+  // 2. Lógica del Menú Móvil
   btn.addEventListener("click", () => {
     const isOpen = menu.style.display === "flex";
     menu.style.display = isOpen ? "none" : "flex";
@@ -154,10 +174,35 @@ import ThemeToggle from "./ThemeToggle";
     });
   });
 
+  // 3. Lógica del Scroll
   window.addEventListener("scroll", () => {
     const isScrolled = window.scrollY > 20;
     navbar.classList.toggle("bg-[var(--bg)]/90", isScrolled);
     navbar.classList.toggle("border-[var(--border)]", isScrolled);
     navbar.classList.toggle("shadow-sm", isScrolled);
+  });
+
+  // 4. Lógica del Backdrop (Hover dinámico)
+  listItems.forEach(item => {
+    item.addEventListener("mouseenter", () => {
+      const { left, top, width, height } = item.getBoundingClientRect();
+
+      // Corregimos la posición relativa al viewport si el header es fixed
+      // Actualizamos las variables CSS para posicionar el backdrop
+      menuBackDrop.style.setProperty("--left", `${left}px`);
+      menuBackDrop.style.setProperty("--top", `${top}px`);
+      menuBackDrop.style.setProperty("--width", `${width}px`);
+      menuBackDrop.style.setProperty("--height", `${height}px`);
+
+      // Hacemos visible el backdrop
+      menuBackDrop.style.opacity = "1";
+      menuBackDrop.style.visibility = "visible";
+    });
+
+    // Ocultamos el backdrop al salir del enlace
+    item.addEventListener("mouseleave", () => {
+      menuBackDrop.style.opacity = "0";
+      menuBackDrop.style.visibility = "hidden";
+    });
   });
 </script>

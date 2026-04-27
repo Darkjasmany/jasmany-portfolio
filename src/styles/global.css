@@ -138,7 +138,8 @@ a {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-14px);
+    /* transform: translateY(-14px); */
+    transform: translateY(-12px) rotate(0.5deg);
   }
 }
 
