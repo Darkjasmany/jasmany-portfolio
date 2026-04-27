@@ -14,32 +14,27 @@ import SocialIcon from "./SocialIcon.astro";
     <div class="flex-1 flex flex-col items-start gap-6 select-none">
       <div>
         <!-- Nombre -->
-        <h1
-          class="font-bold leading-[0.95] text-[var(--hero-text)] text-[clamp(2.8rem,6vw,4.8rem)]"
-        >
+        <h1 class="font-bold leading-[0.95] text-(--hero-text) text-[clamp(2.8rem,6vw,4.8rem)]">
           Jasmany Franco
         </h1>
-        <!-- Rol -->
 
+        <!-- Rol -->
         <h2
-          class="font-semibold leading-tight text-[var(--hero-text)] text-[clamp(1.6rem,3vw,2.5rem)] flex items-center gap-3"
+          class="font-semibold leading-tight text-(--hero-text) text-[clamp(1.6rem,3vw,2.5rem)] flex items-center gap-3"
         >
           <span class="opacity-30">|</span>
           Full Stack Developer
         </h2>
       </div>
 
-      <!-- Descripción con mb-20 (ahora sí se reflejará) -->
-      <!-- <p class="text-[var(--hero-desc)] max-w-[540px] mb-20 text-[clamp(0.9rem,1.4vw,3.8rem)]"> -->
-      <p
-        class="text-[var(--hero-desc)] max-w-[520px] text-[clamp(0.9rem,1.4vw,3.8rem)] leading-relaxed"
-      >
+      <!-- Descripción del Rol -->
+      <p class="text-(--hero-desc) max-w-130 text-[clamp(0.9rem,1.4vw,3.8rem)] leading-relaxed">
         Ingeniero en Sistemas con más de 10 años en el sector público ecuatoriano, enfocado en
         desarrollo web moderno con Node.js, TypeScript y React. Construyo sistemas reales que
         resuelven problemas reales.
       </p>
 
-      <!-- Íconos sociales renovados: más brillantes y con buen espaciado -->
+      <!-- Íconos sociales -->
       <div class="flex gap-4 flex-wrap">
         <!-- GitHub -->
         <SocialIcon href="https://github.com/Darkjasmany" ariaLabel="GitHub">
