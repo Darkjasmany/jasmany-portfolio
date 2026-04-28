@@ -2,9 +2,10 @@
 interface Props {
   href: string;
   ariaLabel: string;
+  path?: string;
 }
 
-const { href, ariaLabel } = Astro.props;
+const { href, ariaLabel, path } = Astro.props;
 ---
 
 <a
@@ -18,6 +19,6 @@ const { href, ariaLabel } = Astro.props;
     viewBox="0 0 24 24"
     class="w-6 h-6 fill-current transition-all duration-300 ease-out group-hover:scale-110 group-hover:fill-[#00a3ff]"
   >
-    <slot />
+    {path ? <path d={path} /> : <slot />}
   </svg>
 </a>
