@@ -1,6 +1,7 @@
 ---
 import { socialData } from "../data/socialData";
 import Card from "./Card.astro";
+import TypeEffect from "./home/TypeEffect";
 import SocialIcon from "./SocialIcon.astro";
 ---
 
@@ -24,7 +25,7 @@ import SocialIcon from "./SocialIcon.astro";
           class="font-semibold leading-tight text-(--hero-text) text-[clamp(1.6rem,3vw,2.5rem)] flex items-center gap-3"
         >
           <span class="opacity-30">|</span>
-          Full Stack Developer
+          <TypeEffect client:visible />
         </h2>
       </div>
 

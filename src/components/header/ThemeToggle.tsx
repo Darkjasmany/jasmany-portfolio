@@ -26,34 +26,9 @@ const ThemeToggle = () => {
       onClick={toggle}
       aria-label="Cambiar tema"
       className={`relative h-6 w-11 shrink-0 cursor-pointer rounded-full transition-colors duration-300 ${theme === "dark" ? "bg-[#f7f9f9]" : "bg-[#1a2332]"} `}
-      //   style={{
-      //     width: "44px",
-      //     height: "24px",
-      //     borderRadius: "100px",
-      //     background: theme === "dark" ? "#5b9bff" : "#1a2332",
-      //     border: "none",
-      //     cursor: "pointer",
-      //     position: "relative",
-      //     transition: "background 0.3s",
-      //     flexShrink: 0,
-      //   }}
     >
       <span
-        className={`absolute top-[3px] flex h-[18px] w-[18px] items-center justify-center rounded-full bg-white text-[11px] transition-all duration-250 ${theme === "dark" ? "left-[23px]" : "left-[3px]"}`}
-        // style={{
-        //   position: "absolute",
-        //   top: "3px",
-        //   left: theme === "dark" ? "23px" : "3px",
-        //   width: "18px",
-        //   height: "18px",
-        //   borderRadius: "50%",
-        //   background: "#fff",
-        //   transition: "left 0.25s",
-        //   display: "flex",
-        //   alignItems: "center",
-        //   justifyContent: "center",
-        //   fontSize: "11px",
-        // }}
+        className={`absolute top-0.75 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-white text-[11px] transition-all duration-250 ${theme === "dark" ? "left-5.75" : "left-0.75"}`}
       >
         {theme === "dark" ? "☀️" : "🌙"}
       </span>
