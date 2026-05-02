@@ -1,16 +1,14 @@
 import Typewriter from "typewriter-effect";
+import { copyWriting } from "../../data/copyWriting";
 
 const TypeEffect = () => {
+  const typewriterStrings = copyWriting.map(item => item.description);
+
   return (
     <div className="notranslate">
       <Typewriter
         options={{
-          strings: [
-            "Full Stack Developer",
-            "Construyendo sistemas reales",
-            "Soluciones web escalables",
-            "Código limpio y eficiente",
-          ],
+          strings: typewriterStrings,
           autoStart: true,
           loop: true,
           deleteSpeed: 20,

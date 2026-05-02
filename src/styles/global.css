@@ -40,7 +40,7 @@ body {
 /* ── TOKENS MODO CLARO (default) ── */
 :root {
   /* Imagen de Assets para Modo Claro */
-  --bg-image: url("../assets/cool-background.png");
+  --bg-image: url("../assets/backgrounds/cool-background.png");
 
   --hero-bg: #d8dce2;
   --hero-text: #1a2332;
@@ -76,7 +76,7 @@ body {
 /* ── TOKENS MODO OSCURO ── */
 [data-theme="dark"] {
   /* Imagen de Assets para Modo Oscuro */
-  --bg-image: url("../assets/cool-background-dark.png");
+  --bg-image: url("../assets/backgrounds/cool-background-dark.png");
 
   --hero-bg: #0f1117;
   --hero-text: #e8ecf4;

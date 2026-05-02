@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 // Importa la imagen localmente (asumiendo que está en src/assets/)
 // Si está en public/, usa "/Jasma.png" directamente en el src del componente
-// import jasmaImage from "../assets/Jasma.png";
+import jasmaImage from "../../assets/images/Jasma.png";
 ---
 
 <div class="hidden lg:flex items-center justify-center shrink-0" style="perspective: 1400px;">
@@ -43,7 +43,7 @@ import { Image } from "astro:assets";
       style="transform: translateZ(0px); transform-style: preserve-3d;"
     >
       <Image
-        src="/Jasma.png"
+        src={jasmaImage}
         alt="Jasmany Franco"
         width={280}
         height={340}
