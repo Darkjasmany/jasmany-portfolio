@@ -33,7 +33,7 @@ export const socialData: SocialData[] = [
   },
   {
     name: "Email",
-    link: "mailto:...",
+    link: "mailto:jasmanyfranco@gmail.com",
     type: "email",
   },
   {

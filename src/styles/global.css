@@ -18,20 +18,18 @@ html {
 
 body {
   font-family: "Outfit", system-ui, sans-serif;
-
-  /* Usamos background-image para manejar la imagen de assets */
-  background-image: var(--bg-image);
+  background-image: var(--bg-image); /* Usamos background-image para manejar la imagen de assets */
   background-color: var(--bg); /* Fallback si la imagen no carga */
   background-attachment: fixed; /* Hace que la imagen quede quieta mientras el contenido se desliza sobre ella */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: var(--bg-image);
 
   color: var(--text);
   transition:
     background 0.3s,
     color 0.3s;
+
   min-height: 100vh; /* Asegura que el fondo cubra toda la pantalla incluso si tienes poco contenido en una página.*/
   display: flex;
   flex-direction: column;
