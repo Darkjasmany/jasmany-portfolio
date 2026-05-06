@@ -16,31 +16,31 @@ import TypeEffect from "../ui/TypeEffect";
     <!-- IZQUIERDA -->
     <div class="flex-1 flex flex-col items-start gap-6 select-none">
       <div>
-        <!-- Nombre -->
-        <h1 class="font-semibold leading-none text-(--hero-text) text-[clamp(2.8rem,6vw,4.8rem)]">
+        <h1
+          class="font-semibold leading-none text-[var(--hero-text)] text-[clamp(2.8rem,6vw,4.8rem)]"
+        >
           Jasmany Franco
         </h1>
 
         <!-- Rol animado con Typewriter-->
         <h2
-          class="font-semibold leading-tight text-(--hero-text) text-[clamp(1.6rem,3vw,2.5rem)] flex items-center gap-3"
+          class="font-semibold leading-tight text-[var(--hero-text)] text-[clamp(1.6rem,3vw,2.5rem)] flex items-center gap-3"
         >
           <span class="opacity-30">|</span>
           <TypeEffect client:visible />
         </h2>
       </div>
 
-      <!-- Descripción del Rol -->
-      <!-- class="text-(--hero-desc) max-w-[480px] text-[clamp(0.95rem,1.2vw,1.1rem)] leading-relaxed" -->
-      <p class="text-(--hero-desc) max-w-120 text-lg leading-relaxed opacity-80">
+      <p class="text-[var(--hero-desc)] max-w-120 text-lg leading-relaxed opacity-80">
         Ingeniero en Sistemas con más de 10 años en el sector público ecuatoriano, enfocado en
         desarrollo web moderno con Node.js, TypeScript y React. Construyo sistemas reales que
         resuelven problemas reales.
       </p>
 
+      <!-- LINK FIXED -->
       <a
         href="#sobre-mi"
-        class="group inline-flex items-center gap-2 text-base font-semibold transition-all duration-300 ease-in-out text-(--hero-text) hover:!text-[#00a3ff]"
+        class="group inline-flex items-center gap-2 text-base font-semibold transition-colors duration-200 ease-out text-[var(--hero-text)] hover:text-[var(--accent)] opacity-90 hover:opacity-100"
       >
         Ver más sobre mí
         <HiArrowRight
@@ -49,14 +49,14 @@ import TypeEffect from "../ui/TypeEffect";
         />
       </a>
 
-      <!-- Íconos sociales -->
+      <!-- SOCIAL -->
       <div class="flex gap-4 flex-wrap">
         {
           socialData.map(data =>
             data.type === "email" ? (
               <SocialIcon href={data.link} ariaLabel={data.name}>
                 <g
-                  class="stroke-current fill-none group-hover:stroke-[#00a3ff]"
+                  class="stroke-current fill-none group-hover:stroke-[var(--accent)]"
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -73,7 +73,7 @@ import TypeEffect from "../ui/TypeEffect";
       </div>
     </div>
 
-    <!-- DERECHA — foto con marcos -->
+    <!-- DERECHA -->
     <Card />
   </div>
 </header>

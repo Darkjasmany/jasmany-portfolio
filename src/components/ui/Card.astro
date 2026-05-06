@@ -5,46 +5,49 @@ import jasmaImage from "../../assets/images/JasmanyF.png";
 
 <div class="hidden lg:flex items-center justify-center shrink-0" style="perspective: 1400px;">
   <!-- FLOAT LAYER (solo movimiento vertical) -->
+  <!-- <div id="float-layer" class="relative w-[340px] h-[340px] animate-float"> -->
   <div id="float-layer" class="relative w-100 h-100 animate-float">
     <!-- TILT LAYER (3D interactivo) -->
     <div
       id="card-wrapper"
       class="relative w-full h-full transition-transform duration-300 ease-out"
-      style="transform-style: preserve-3d;"
+      style="transform-style: preserve-3d; transform: rotateX(0deg) rotateY(0deg);"
     >
+      <!-- CAPAS -->
       <!-- Card fondo 1 -->
       <div
-        class="absolute top-1/2 left-1/2 w-full h-full rounded-2xl bg-black/20"
-        style="transform: translate(-50%, -50%) rotate(-45deg) translateZ(-40px)"
+        class="absolute top-1/2 left-1/2 w-full h-full rounded-2xl"
+        style="background: var(--card-layer-1); transform: translate(-50%, -50%) rotate(-45deg) translateZ(-40px)"
       >
       </div>
 
       <!-- Card fondo 2 -->
+
       <div
-        class="absolute top-1/2 left-1/2 w-full h-full rounded-2xl bg-black/30"
-        style="transform: translate(-50%, -50%) rotate(20deg) translateZ(-20px)"
+        class="absolute top-1/2 left-1/2 w-full h-full rounded-2xl"
+        style="background: var(--card-layer-2); transform: translate(-50%, -50%) rotate(20deg) translateZ(-20px)"
       >
       </div>
 
       <!-- Card fondo 3 -->
       <div
-        class="absolute top-1/2 left-1/2 w-[85%] h-[85%] rounded-2xl bg-black/40"
-        style="transform: translate(-50%, -50%) rotate(20deg) translateZ(-10px)"
+        class="absolute top-1/2 left-1/2 w-[85%] h-[85%] rounded-2xl"
+        style="background: var(--card-layer-3); transform: translate(-50%, -50%) rotate(20deg) translateZ(-10px)"
       >
       </div>
 
       <!-- CARD PRINCIPAL -->
       <div
         id="card"
-        class="absolute top-1/2 left-1/2 z-10 w-85 h-full rounded-2xl overflow-hidden
-        border border-white/30 bg-white/8 backdrop-blur-2xl"
-        style="transform: translate(-50%, -50%); transform-style: preserve-3d;"
+        class="absolute top-1/2 left-1/2 z-10 w-full h-full rounded-2xl overflow-hidden
+        border border-white/30 bg-white/10 backdrop-blur-2xl"
+        style="transform: translate(-50%, -50%);"
       >
         <Image
           src={jasmaImage}
           alt="Jasmany Franco"
-          width={230}
-          height={290}
+          width={340}
+          height={340}
           class="w-full h-full object-cover object-top"
         />
 
@@ -67,22 +70,8 @@ import jasmaImage from "../../assets/images/JasmanyF.png";
 </div>
 
 <style>
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
-  }
-
   .animate-float {
     animation: float 4s ease-in-out infinite;
-  }
-
-  #card-wrapper {
-    will-change: transform;
   }
 
   #card {
@@ -92,56 +81,60 @@ import jasmaImage from "../../assets/images/JasmanyF.png";
   }
 </style>
 
-<script>
-  const wrapper = document.getElementById("card-wrapper") as HTMLElement;
-  const glow = document.getElementById("glow") as HTMLElement;
-  const shine = document.getElementById("shine") as HTMLElement;
+<script is:inline>
+  window.addEventListener("load", () => {
+    const wrapper = document.getElementById("card-wrapper");
+    const glow = document.getElementById("glow");
+    const shine = document.getElementById("shine");
 
-  wrapper.addEventListener("mouseleave", () => {
-    wrapper.style.transform = "";
-    glow.style.opacity = "0";
-    shine.style.opacity = "0";
-  });
+    if (!wrapper) return;
 
-  wrapper.addEventListener("mousemove", e => {
-    const rect = wrapper.getBoundingClientRect();
+    wrapper.addEventListener("mouseleave", () => {
+      wrapper.style.transform = "rotateX(0deg) rotateY(0deg)";
+      glow.style.opacity = "0";
+      shine.style.opacity = "0";
+    });
 
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    wrapper.addEventListener("mousemove", e => {
+      const rect = wrapper.getBoundingClientRect();
 
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
 
-    const rotX = -((y - centerY) / centerY) * 10;
-    const rotY = ((x - centerX) / centerX) * 10;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
 
-    wrapper.style.transform = `
-      rotateX(${rotX}deg)
-      rotateY(${rotY}deg)
-      scale(1.04)
-    `;
+      const rotX = -((y - centerY) / centerY) * 10;
+      const rotY = ((x - centerX) / centerX) * 10;
 
-    // Glow Apple-style
-    glow.style.opacity = "1";
-    glow.style.background = `
-      radial-gradient(
-        600px circle at ${x}px ${y}px,
-        rgba(255,255,255,0.18),
-        rgba(0,163,255,0.10) 30%,
-        transparent 65%
-      )
-    `;
+      wrapper.style.transform = `
+        rotateX(${rotX}deg)
+        rotateY(${rotY}deg)
+        scale(1.04)
+      `;
 
-    // Shine tipo vidrio
-    shine.style.opacity = "0.35";
-    shine.style.background = `
-      linear-gradient(
-        ${115 + rotY * 1.5}deg,
-        rgba(255,255,255,0.35),
-        rgba(255,255,255,0.12) 25%,
-        rgba(255,255,255,0.05) 40%,
-        transparent 60%
-      )
-    `;
+      // Glow Apple-style
+      glow.style.opacity = "1";
+      glow.style.background = `
+        radial-gradient(
+          600px circle at ${x}px ${y}px,
+          rgba(255,255,255,0.18),
+          rgba(0,163,255,0.10) 30%,
+          transparent 65%
+        )
+      `;
+
+      // Shine tipo vidrio
+      shine.style.opacity = "0.35";
+      shine.style.background = `
+        linear-gradient(
+          ${115 + rotY * 1.5}deg,
+          rgba(255,255,255,0.35),
+          rgba(255,255,255,0.12) 25%,
+          rgba(255,255,255,0.05) 40%,
+          transparent 60%
+        )
+      `;
+    });
   });
 </script>
