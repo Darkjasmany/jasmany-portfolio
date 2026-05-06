@@ -1,117 +1,147 @@
 ---
 import { Image } from "astro:assets";
-// Importa la imagen localmente (asumiendo que está en src/assets/)
-// Si está en public/, usa "/Jasma.png" directamente en el src del componente
-import jasmaImage from "../../assets/images/Jasma.png";
+import jasmaImage from "../../assets/images/JasmanyF.png";
 ---
 
 <div class="hidden lg:flex items-center justify-center shrink-0" style="perspective: 1400px;">
-  <div
-    id="card-wrapper"
-    class="relative w-70 h-85 animate-float
-           transition-transform duration-300 ease-out"
-    style="transform-style: preserve-3d;"
-  >
-    <!-- Marco trasero 2 — más rotado, más oscuro -->
+  <!-- FLOAT LAYER (solo movimiento vertical) -->
+  <div id="float-layer" class="relative w-100 h-100 animate-float">
+    <!-- TILT LAYER (3D interactivo) -->
     <div
-      class="absolute inset-0 rounded-2xl"
-      style="
-        background: rgba(0,0,0,0.22);
-        transform: rotate(12deg) translateX(18px) translateY(-8px) translateZ(-30px);
-        border-radius: 16px;
-      "
+      id="card-wrapper"
+      class="relative w-full h-full transition-transform duration-300 ease-out"
+      style="transform-style: preserve-3d;"
     >
-    </div>
-
-    <!-- Marco trasero 1 — menos rotado -->
-    <div
-      class="absolute inset-0 rounded-2xl"
-      style="
-        background: rgba(0,0,0,0.13);
-        transform: rotate(6deg) translateX(8px) translateY(-3px) translateZ(-15px);
-        border-radius: 16px;
-      "
-    >
-    </div>
-
-    <!-- Tarjeta principal -->
-    <div
-      id="card"
-      class="relative z-10 w-full h-full rounded-2xl overflow-hidden
-             border border-white/30
-             shadow-[0_25px_70px_rgba(0,0,0,0.25)]"
-      style="transform: translateZ(0px); transform-style: preserve-3d;"
-    >
-      <Image
-        src={jasmaImage}
-        alt="Jasmany Franco"
-        width={280}
-        height={340}
-        class="w-full h-full object-cover object-top"
-      />
-
-      <!-- Glow dinámico al hover -->
+      <!-- Card fondo 1 -->
       <div
-        id="glow"
-        class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-200"
+        class="absolute top-1/2 left-1/2 w-full h-full rounded-2xl bg-black/20"
+        style="transform: translate(-50%, -50%) rotate(-45deg) translateZ(-40px)"
       >
       </div>
 
-      <!-- Shine efecto vidrio -->
+      <!-- Card fondo 2 -->
       <div
-        id="shine"
-        class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-200"
+        class="absolute top-1/2 left-1/2 w-full h-full rounded-2xl bg-black/30"
+        style="transform: translate(-50%, -50%) rotate(20deg) translateZ(-20px)"
       >
       </div>
 
-      <!-- Label Ecuador -->
+      <!-- Card fondo 3 -->
       <div
-        class="absolute bottom-0 left-0 right-0 py-2 text-center
-                  bg-black/45 backdrop-blur-sm text-white text-xs font-bold tracking-wide"
+        class="absolute top-1/2 left-1/2 w-[85%] h-[85%] rounded-2xl bg-black/40"
+        style="transform: translate(-50%, -50%) rotate(20deg) translateZ(-10px)"
       >
-        📍 Naranjal, Ecuador 🇪🇨
+      </div>
+
+      <!-- CARD PRINCIPAL -->
+      <div
+        id="card"
+        class="absolute top-1/2 left-1/2 z-10 w-[340px] h-full rounded-2xl overflow-hidden
+        border border-white/30 bg-white/[0.08] backdrop-blur-2xl"
+        style="transform: translate(-50%, -50%); transform-style: preserve-3d;"
+      >
+        <Image
+          src={jasmaImage}
+          alt="Jasmany Franco"
+          width={230}
+          height={290}
+          class="w-full h-full object-cover object-top"
+        />
+
+        <!-- Glow -->
+        <div
+          id="glow"
+          class="pointer-events-none absolute inset-0 opacity-0 transition duration-300 mix-blend-overlay"
+        >
+        </div>
+
+        <!-- Shine -->
+        <div
+          id="shine"
+          class="pointer-events-none absolute inset-0 opacity-0 transition duration-300"
+        >
+        </div>
       </div>
     </div>
   </div>
 </div>
 
+<style>
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  #card-wrapper {
+    will-change: transform;
+  }
+
+  #card {
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.25),
+      inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  }
+</style>
+
 <script>
   const wrapper = document.getElementById("card-wrapper") as HTMLElement;
-  const card = document.getElementById("card") as HTMLElement;
   const glow = document.getElementById("glow") as HTMLElement;
   const shine = document.getElementById("shine") as HTMLElement;
 
-  // Pausar float en hover para que no pelee con el 3D
-  wrapper.addEventListener("mouseenter", () => {
-    wrapper.style.animationPlayState = "paused";
-  });
   wrapper.addEventListener("mouseleave", () => {
-    wrapper.style.animationPlayState = "running";
-    // Reset
     wrapper.style.transform = "";
-    card.style.transform = "translateZ(0px)";
     glow.style.opacity = "0";
     shine.style.opacity = "0";
   });
 
-  wrapper.addEventListener("mousemove", (e: MouseEvent) => {
+  wrapper.addEventListener("mousemove", e => {
     const rect = wrapper.getBoundingClientRect();
+
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
+
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    const rotX = -((y - centerY) / centerY) * 12;
-    const rotY = ((x - centerX) / centerX) * 12;
+    const rotX = -((y - centerY) / centerY) * 10;
+    const rotY = ((x - centerX) / centerX) * 10;
 
-    wrapper.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.04)`;
+    wrapper.style.transform = `
+      rotateX(${rotX}deg)
+      rotateY(${rotY}deg)
+      scale(1.04)
+    `;
 
-    // Glow
+    // Glow Apple-style
     glow.style.opacity = "1";
-    glow.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(0,163,255,0.25), transparent 65%)`;
+    glow.style.background = `
+      radial-gradient(
+        600px circle at ${x}px ${y}px,
+        rgba(255,255,255,0.18),
+        rgba(0,163,255,0.10) 30%,
+        transparent 65%
+      )
+    `;
 
-    // Shine
-    shine.style.opacity = "0.55";
-    shine.style.background = `linear-gradient(${120 + rotY * 2}deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.05) 40%, transparent 60%)`;
+    // Shine tipo vidrio
+    shine.style.opacity = "0.35";
+    shine.style.background = `
+      linear-gradient(
+        ${115 + rotY * 1.5}deg,
+        rgba(255,255,255,0.35),
+        rgba(255,255,255,0.12) 25%,
+        rgba(255,255,255,0.05) 40%,
+        transparent 60%
+      )
+    `;
   });
 </script>
