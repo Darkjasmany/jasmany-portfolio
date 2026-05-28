@@ -171,9 +171,8 @@ a {
   }
 }
 
-#card {
+.float-layer {
   animation: reveal 0.8s ease-out;
-  transform-style: preserve-3d;
 }
 
 /* PARALLAX CAPAS */
