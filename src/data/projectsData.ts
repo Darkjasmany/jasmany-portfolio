@@ -1,0 +1,95 @@
+export interface Project {
+  slug: string;
+  title: string;
+  description: string;
+  longDescription: string;
+  problemSolved: string;
+  technologies: string[];
+  image: string;
+  images?: string[];
+  youtubeUrl?: string;
+  demoUrl?: string;
+  githubUrl?: string;
+  featured?: boolean;
+}
+
+export const projects: Project[] = [
+  {
+    slug: "DMS",
+    title: "Sistema de Gestión Documental (DMS)",
+    description:
+      "Plataforma integral para la gestión administrativa del Documentos del GAD de Naranjal.",
+    longDescription:
+      "Este proyecto es un sistema de gestión documental desarrollado con Node.js para el backend y React con TailwindCSS para el frontend. El sistema permite a los usuarios gestionar documentos de manera eficiente, eliminando procesos manuales en papel y reduciendo tiempos de respuesta. Además, cuenta con funcionalidades como control de acceso, seguimiento de documentos y generación de reportes.",
+    problemSolved:
+      "Eliminó procesos manuales en papel, reduciendo tiempos de respuesta, y permitió una gestión eficiente de documentos, mejorando el control y busqueda de información.",
+    technologies: ["React", "TailwindCSS", "Node.js", "Express", "Sequelize", "PostgreSQL"],
+    image: "/images/proyecto-gad.jpg",
+    images: ["/images/gad-1.jpg", "/images/gad-2.jpg"],
+    youtubeUrl: "https://youtube.com/watch?v=...",
+    demoUrl: "https://...",
+    githubUrl: "https://github.com/Darkjasmany/SelNic",
+    featured: true,
+  },
+  {
+    slug: "futbol-system",
+    title: "Sistema de Gestión de Fútbol",
+    description: "Plataforma integral para la administración de ligas y torneos de fútbol.",
+    longDescription:
+      "Sistema enfocado en la gestión deportiva que permite el reconocimiento facial para acceso, validación de equipos y categorías, registro detallado de jugadores, gestión de partidos (matches), historial de encuentros y programación de fechas futuras.",
+    problemSolved:
+      "Centraliza y automatiza la administración de torneos, eliminando el papeleo manual y mejorando la seguridad y trazabilidad de los registros de jugadores y partidos.",
+    technologies: [
+      "TypeScript",
+      "React",
+      "Node.js",
+      "Express",
+      "Prisma",
+      "PostgreSQL",
+      "Reconocimiento Facial",
+    ],
+    image: "/images/placeholder-project.svg",
+    githubUrl: "https://github.com/Darkjasmany/futbol-system",
+    featured: true,
+  },
+  {
+    slug: "cash-management",
+    title: "Cash Management",
+    description:
+      "Aplicación web para la gestión y control de carga de información a la plataforma Cash Management del Banco de Pichincha.",
+    longDescription:
+      "Plataforma full-stack desarrollada con TypeScript para el manejo de ingresos, egresos y reporting financiero en tiempo real. Incluye autenticación de usuarios, registro de transacciones, y generación de reportes.",
+    problemSolved:
+      "Generación centralizada para la obtención de deudas de los contribuyente, inluyendo valores nominales, intereses exactos calculados de manera individual en archivos en texto plano y excel.",
+    technologies: ["TypeScript", "React", "Node.js", "Express", "Prisma", "PostgreSQL"],
+    image: "/images/placeholder-project.svg",
+    githubUrl: "https://github.com/Darkjasmany/cash-management",
+    featured: true,
+  },
+  {
+    slug: "pokedex",
+    title: "Pokédex Nacional",
+    description: "Pokédex interactiva con filtros por tipo y búsqueda por nombre.",
+    longDescription:
+      "Aplicación desarrollada con fines de aprendizaje construida con Astro que consume la PokéAPI para mostrar los 151 Pokémon originales. Incluye filtrado por tipo, búsqueda en tiempo real y diseño responsive.",
+    problemSolved:
+      "Proporciona una interfaz rápida y visual para explorar información de Pokémon consumiendo una API externa.",
+    technologies: ["Astro", "TailwindCSS", "JavaScript", "API REST"],
+    image: "/images/placeholder-project.svg",
+    githubUrl: "https://github.com/Darkjasmany/Pokedex-Nacional",
+    featured: false,
+  },
+  {
+    slug: "app-clima",
+    title: "Aplicación de Clima",
+    description: "Herramienta de consulta meteorológica en tiempo real.",
+    longDescription:
+      "Aplicación desarrollada con fines de aprendizaje para interactuar con APIs meteorológicas, permitiendo consultar el estado del tiempo, pronósticos y condiciones climáticas de diferentes ubicaciones de manera rápida y eficiente.",
+    problemSolved:
+      "Facilita el acceso a información climática actualizada mediante una interfaz sencilla, ideal para la práctica de consumo de APIs externas.",
+    technologies: ["JavaScript", "API Integration", "Web Development"],
+    image: "/images/placeholder-project.svg",
+    githubUrl: "https://github.com/Darkjasmany/APP-Clima",
+    featured: false,
+  },
+];
