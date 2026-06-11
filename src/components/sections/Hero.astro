@@ -4,6 +4,7 @@ import { socialData } from "../../data/socialData";
 import Card from "../ui/Card.astro";
 import SocialIcon from "../ui/SocialIcon.astro";
 import TypeEffect from "../ui/TypeEffect";
+import Slider from "./Slider.astro";
 ---
 
 <header
@@ -14,7 +15,7 @@ import TypeEffect from "../ui/TypeEffect";
     class="relative z-10 w-full max-w-6xl mx-auto px-6 md:px-16 lg:px-24 pt-28 pb-16 flex flex-col lg:flex-row items-center justify-center gap-24 xl:gap-28"
   >
     <!-- IZQUIERDA -->
-    <div class="flex-1 flex flex-col items-start gap-6 select-none">
+    <div class="flex-1 flex flex-col items-start gap-6 select-none min-w-0">
       <div>
         <h1
           class="font-semibold leading-none text-[var(--hero-text)] text-[clamp(2.8rem,6vw,4.8rem)]"
@@ -39,7 +40,7 @@ import TypeEffect from "../ui/TypeEffect";
 
       <!-- LINK FIXED -->
       <a
-        href="#sobre-mi"
+        href="/about"
         class="group inline-flex items-center gap-2 text-base font-semibold transition-colors duration-200 ease-out text-[var(--hero-text)] hover:text-[var(--accent)] opacity-90 hover:opacity-100"
       >
         Ver más sobre mí
@@ -54,24 +55,25 @@ import TypeEffect from "../ui/TypeEffect";
         href="https://drive.google.com/file/d/1VBkWbmi9Pjx7BVrrSfI872oBf-D52YQD/view"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-base font-semibold bg-[var(--accent)] text-white hover:shadow-lg hover:shadow-[var(--accent)]/25 active:scale-95 transition-all duration-200"
+        class="group inline-flex items-center gap-2 text-sm font-medium transition-colors duration-200 ease-out text-[var(--muted)] hover:text-[var(--accent)]"
         ><!-- Ícono de descarga (SVG inline) -->
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="18"
-          height="18"
+          width="16"
+          height="16"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          stroke-width="2.5"
+          stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
+          class="transition-transform duration-200 group-hover:-translate-y-0.5"
         >
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
           <polyline points="7 10 12 15 17 10"></polyline>
           <line x1="12" y1="15" x2="12" y2="3"></line>
         </svg>
-        Mi Curriculum</a
+        Curriculum</a
       >
 
       <!-- SOCIAL -->
@@ -95,6 +97,14 @@ import TypeEffect from "../ui/TypeEffect";
             )
           )
         }
+      </div>
+
+      <!-- Separador visual -->
+      <div class="w-full h-px bg-[var(--border)] my-2 opacity-50"></div>
+
+      <!-- SLIDER DE TECNOLOGÍAS (dentro del Hero) -->
+      <div class="w-full max-w-full -mx-1">
+        <Slider />
       </div>
     </div>
 
