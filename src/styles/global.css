@@ -9,7 +9,7 @@
 
 /* Esto hace que cuando hagas clic en un enlace de tu menú (por ejemplo, #proyectos), la página no "salte" de golpe, sino que se deslice suavemente hasta la sección. */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* Suaviza el movimiento al usar enlaces internos */
   /* Esto compensa la altura del nav cuando saltas a una sección */
   /* scroll-padding-top: 70px; */
   margin: 0;
@@ -33,6 +33,18 @@ body {
   min-height: 100vh; /* Asegura que el fondo cubra toda la pantalla incluso si tienes poco contenido en una página.*/
   display: flex;
   flex-direction: column;
+  /* Scroll Snap */
+  /* scroll-snap-type: y mandatory; */
+  scroll-snap-type: y proximity; /* Es una regla basada en la distancia. El navegador solo forzará el ajuste si el usuario se detiene muy cerca de un punto de snap. Si se detiene en un punto intermedio alejado de los bordes, el scroll se quedará exactamente ahí, de manera natural. */
+  overflow-y: scroll;
+  height: 100vh;
+  /* TODO Aqui debo considerar la altura de acuerdo al contenido de cada seccion */
+}
+
+/* Scroll span */
+section,
+header {
+  scroll-snap-align: start;
 }
 
 /* ── TOKENS MODO CLARO (default) ── */
