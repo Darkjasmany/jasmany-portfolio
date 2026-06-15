@@ -1,32 +1,26 @@
-interface SpecialtiesData {
-  title: string;
-  description: string;
-  icon: string;
-}
-
-export const specialtiesData: SpecialtiesData[] = [
+export const specialtiesData = [
   {
+    category: "Desarrollo",
     title: "Full Stack",
-    description:
-      "Node.js + React + TypeScript + PostgreSQL. Aplicaciones web completas, APIs REST y frontend moderno de principio a fin.",
-    icon: "code",
+    icon: "dev",
+    description: "Aplicaciones web modernas de principio a fin.",
   },
   {
+    category: "Procesos",
     title: "Automatización",
-    description:
-      "Sistemas que eliminan procesos manuales. Gestión documental (DMS), digitalización de trámites y workflows administrativos.",
-    icon: "bolt",
+    icon: "automation",
+    description: "Digitalización de procesos y workflows empresariales.",
   },
   {
+    category: "DevOps",
     title: "Infraestructura",
-    description:
-      "Proxmox, Docker, VPN, Linux. Ambientes virtualizados, conectividad segura y administración de servidores.",
-    icon: "computer-monitor",
+    icon: "infrastructure",
+    description: "Docker, Linux, VPN y administración de servidores.",
   },
   {
+    category: "Data",
     title: "Bases de Datos",
-    description:
-      "MySQL, PostgreSQL, optimización de consultas. Integración con el Banco Central (BCE) y seguridad SSL.",
-    icon: "database-server",
+    icon: "database",
+    description: "Optimización e integración segura de datos.",
   },
 ];

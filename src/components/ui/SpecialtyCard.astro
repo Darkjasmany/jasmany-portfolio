@@ -3,9 +3,10 @@ interface Props {
   title: string;
   description: string;
   icon: string;
+  category?: string;
 }
 
-const { title, description, icon } = Astro.props;
+const { title, description, icon, category = "" } = Astro.props;
 
 // 1. Importamos todos los SVGs de la carpeta de forma dinámica
 const githubSvgs = import.meta.glob("/public/svg/*.svg", { as: "raw" });
@@ -16,30 +17,99 @@ const svgRaw = githubSvgs[svgPath] ? await githubSvgs[svgPath]() : "";
 ---
 
 <div
-  class="group relative p-8 md:p-10 rounded-xl border-2 border-[var(--border)] bg-[var(--card)] shadow-md transition-all duration-300 hover:border-[var(--accent)] hover:shadow-xl hover:shadow-[var(--accent)]/10 hover:-translate-y-1 flex flex-col h-full overflow-hidden"
+  class="group
+          relative
+          p-5
+          md:p-6
+          rounded-xl
+          border
+          border-[var(--border)]
+          bg-[var(--card)]
+          shadow-md
+          transition-all
+          duration-300
+          hover:border-[var(--accent)]
+          hover:-translate-y-1
+          hover:shadow-lg
+          overflow-hidden"
 >
+  <!-- Línea superior animada -->
   <div
-    class="absolute inset-0 bg-gradient-to-br from-[var(--accent)]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
+    class="absolute
+      top-0
+      left-0
+      h-[3px]
+      w-0
+      bg-[var(--accent)]
+      transition-all
+      duration-300
+      group-hover:w-full"
   >
   </div>
 
-  <div class="flex items-center gap-5 mb-6">
-    <div
-      class="w-14 h-14 rounded-lg bg-[var(--accent-light)] flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-[var(--accent)] transition-all duration-300"
-    >
+  <!-- Glow suave -->
+  <div
+    class="absolute
+            inset-0
+            bg-gradient-to-br
+            from-[var(--accent)]/5
+            to-transparent
+            opacity-0
+            group-hover:opacity-100
+            transition-opacity
+            duration-300
+            pointer-events-none"
+  >
+  </div>
+
+  <div class="relative z-10">
+    {
+      category && (
+        <p
+          class="
+            text-[11px]
+            uppercase
+            tracking-[0.25em]
+            text-[var(--accent)]
+            font-semibold
+            mb-3
+          "
+        >
+          {category}
+        </p>
+      )
+    }
+
+    <div class="flex items-center gap-4 mb-3">
       <div
-        class="text-[var(--accent)] group-hover:text-white transition-colors duration-300 w-7 h-7 flex items-center justify-center [&>svg]:w-full [&>svg]:h-full [&>svg]:fill-current"
+        class="w-8 h-8
+          shrink-0
+          flex items-center justify-center
+          text-[var(--accent)]
+          transition-transform
+          duration-300
+          group-hover:scale-110
+          [&>svg]:w-full
+          [&>svg]:h-full"
         set:html={svgRaw}
       />
-    </div>
-    <div class="p-3">
-      <h3 class="text-xl md:text-2xl font-bold text-[var(--hero-text)]">
+
+      <h3
+        class="text-xl
+          md:text-2xl
+          font-bold
+          leading-tight
+          text-[var(--hero-text)]"
+      >
         {title}
       </h3>
     </div>
-  </div>
 
-  <p class="text-base leading-relaxed text-[var(--hero-desc)]">
-    {description}
-  </p>
+    <p class="text-sm
+        md:text-base
+        leading-relaxed
+        text-[var(--hero-desc)]">
+      {description}
+    </p>
+  </div>
 </div>
