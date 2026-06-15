@@ -2,11 +2,12 @@
 interface Props {
   title: string;
   description: string;
+  descriptionLong: string;
   icon: string;
   category?: string;
 }
 
-const { title, description, icon, category = "" } = Astro.props;
+const { title, description, icon, category = "", descriptionLong } = Astro.props;
 
 // 1. Importamos todos los SVGs de la carpeta de forma dinámica
 const githubSvgs = import.meta.glob("/public/svg/*.svg", { as: "raw" });
@@ -106,10 +107,20 @@ const svgRaw = githubSvgs[svgPath] ? await githubSvgs[svgPath]() : "";
     </div>
 
     <p class="text-sm
-        md:text-base
+        md:hidden
         leading-relaxed
         text-[var(--hero-desc)]">
       {description}
+    </p>
+
+    <p
+      class="hidden
+        md:block
+        text-base
+        leading-relaxed
+        text-[var(--hero-desc)]"
+    >
+      {descriptionLong}
     </p>
   </div>
 </div>
