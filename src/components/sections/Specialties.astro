@@ -1,12 +1,11 @@
 ---
 import { specialtiesData } from "../../data/specialtiesData";
 import SpecialtyCard from "../ui/SpecialtyCard.astro";
+import Title from "../ui/Title.astro";
 ---
 
-<section
-  id="specialties"
-  class="w-full min-h-screen overflow-x-hidden transition-colors duration-300"
->
+<!-- class="w-full min-h-screen overflow-x-hidden transition-colors duration-300" -->
+<section id="specialties" class="w-full overflow-hidden transition-colors duration-300">
   <div
     class="relative z-10
             w-full max-w-7xl mx-auto
@@ -23,26 +22,7 @@ import SpecialtyCard from "../ui/SpecialtyCard.astro";
                 select-none
                 min-w-0"
     >
-      <div class="">
-        <h2
-          class="text-[clamp(2.5rem,5vw,3.5rem)]
-                  font-semibold
-                  text-[var(--hero-text)]
-                  mb-1
-                  tracking-tight"
-        >
-          Áreas de
-          <span class="text-[var(--accent)]">Especialidad</span>
-        </h2>
-
-        <div
-          class="w-24 h-1
-                    rounded-full
-                    bg-[var(--accent)]
-                    opacity-70"
-        >
-        </div>
-      </div>
+      <Title title="Áreas de" span="Especialidad" />
 
       <div
         class="grid

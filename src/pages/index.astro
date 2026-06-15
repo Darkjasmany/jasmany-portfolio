@@ -1,5 +1,7 @@
 ---
 import Hero from "../components/sections/Hero.astro";
+// import ProjectsCarousel from "../components/sections/ProjectsCarousel";
+import Projects from "../components/sections/Projects.astro";
 import Specialties from "../components/sections/Specialties.astro";
 import Layout from "../layouts/Layout.astro";
 ---
@@ -7,4 +9,7 @@ import Layout from "../layouts/Layout.astro";
 <Layout>
   <Hero />
   <Specialties />
+  <!--  client:visible → El componente React solo se hidrata cuando es visible en pantalla. -->
+  <!-- <ProjectsCarousel client:visible /> -->
+  <Projects />
 </Layout>

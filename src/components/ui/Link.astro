@@ -1,0 +1,21 @@
+---
+import { HiArrowRight } from "react-icons/hi";
+
+interface Props {
+  href: string;
+  text: string;
+}
+
+const { href, text } = Astro.props;
+---
+
+<a
+  href={href}
+  class="group inline-flex items-center gap-2 text-base font-semibold transition-colors duration-200 ease-out text-[var(--hero-text)] hover:text-[var(--accent)] opacity-90 hover:opacity-100"
+>
+  {text}
+  <HiArrowRight
+    className="text-xl transition-transform duration-300 ease-out group-hover:translate-x-2"
+    size={18}
+  />
+</a>

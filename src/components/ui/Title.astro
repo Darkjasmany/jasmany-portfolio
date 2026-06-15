@@ -1,0 +1,29 @@
+---
+interface Props {
+  title: string;
+  span: string;
+}
+
+const { title, span } = Astro.props;
+---
+
+<div class="">
+  <h2
+    class="text-[clamp(2.5rem,5vw,3.5rem)]
+                  font-semibold
+                  text-[var(--hero-text)]
+                  mb-1
+                  tracking-tight"
+  >
+    {title}
+    <span class="text-[var(--accent)]">{span}</span>
+  </h2>
+
+  <div
+    class="w-24 h-1
+                    rounded-full
+                    bg-[var(--accent)]
+                    opacity-70"
+  >
+  </div>
+</div>
