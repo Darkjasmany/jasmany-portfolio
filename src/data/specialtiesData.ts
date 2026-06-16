@@ -4,7 +4,7 @@ export const specialtiesData = [
     title: "Full Stack",
     icon: "development",
     description: "Aplicaciones web modernas de principio a fin.",
-    descriptionLong:
+    longDescription:
       "Aplicaciones web modernas de principio a fin, desde la arquitectura backend hasta interfaces intuitivas y escalables.",
   },
   {
@@ -12,7 +12,7 @@ export const specialtiesData = [
     title: "Automatización",
     icon: "automation",
     description: "Digitalización de procesos y workflows empresariales.",
-    descriptionLong:
+    longDescription:
       "Digitalización de procesos y workflows empresariales para reducir tareas manuales y mejorar la eficiencia operativa.",
   },
   {
@@ -20,7 +20,7 @@ export const specialtiesData = [
     title: "Infraestructura",
     icon: "infrastructure",
     description: "Docker, Linux, VPN y administración de servidores.",
-    descriptionLong:
+    longDescription:
       "Docker, Linux, VPN y administración de servidores enfocados en estabilidad, seguridad y despliegue continuo.",
   },
   {
@@ -28,7 +28,7 @@ export const specialtiesData = [
     title: "Bases de Datos",
     icon: "database",
     description: "Optimización e integración segura de datos.",
-    descriptionLong:
+    longDescription:
       "Optimización e integración segura de datos con foco en rendimiento, integridad y escalabilidad.",
   },
 ];

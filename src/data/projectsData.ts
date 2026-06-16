@@ -77,7 +77,7 @@ export const projects: Project[] = [
     technologies: ["Astro", "TailwindCSS", "JavaScript", "API REST"],
     image: "/images/placeholder-project.svg",
     githubUrl: "https://github.com/Darkjasmany/Pokedex-Nacional",
-    featured: false,
+    featured: true,
   },
   {
     slug: "app-clima",

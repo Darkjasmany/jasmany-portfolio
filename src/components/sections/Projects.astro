@@ -1,4 +1,5 @@
 ---
+import ProjectsCarousel from "../projects/ProjectsCarousel";
 import Link from "../ui/Link.astro";
 import Title from "../ui/Title.astro";
 ---
@@ -10,8 +11,18 @@ import Title from "../ui/Title.astro";
             px-4 sm:px-5 md:px-6 lg:px-10
             pb-10 md:pb-16"
   >
-    <Title title="Proyectos" span="Destacados" />
+    <div class="flex items-end justify-between mb-10">
+      <Title title="Proyectos" span="Destacados" />
 
-    <Link href="/projects" text="Ver todos" />
+      <div class="hidden md:block">
+        <Link href="/projects" text="Ver todos" />
+      </div>
+    </div>
+
+    <ProjectsCarousel client:load />
+
+    <div class="mt-8 md:hidden">
+      <Link href="/projects" text="Ver todos" />
+    </div>
   </div>
 </section>
