@@ -16,7 +16,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: "DMS",
-    title: "Sistema de Gestión Documental (DMS)",
+    title: "Sistema de Gestión Documental",
     description:
       "Plataforma integral para la gestión administrativa del Documentos del GAD de Naranjal.",
     longDescription:
@@ -56,7 +56,7 @@ export const projects: Project[] = [
     slug: "cash-management",
     title: "Cash Management",
     description:
-      "Aplicación web para la gestión y control de carga de información a la plataforma Cash Management del Banco de Pichincha.",
+      "Aplicación web para la gestión y control de carga de información a la plataforma del Banco de Pichincha.",
     longDescription:
       "Plataforma full-stack desarrollada con TypeScript para el manejo de ingresos, egresos y reporting financiero en tiempo real. Incluye autenticación de usuarios, registro de transacciones, y generación de reportes.",
     problemSolved:
