@@ -71,7 +71,6 @@ const ProjectsCarousel = () => {
     <>
       <div className="relative">
         {/* Flecha izquierda */}
-
         {featuredProjects.length > cardsPerView && (
           <button
             onClick={prev}
@@ -84,25 +83,17 @@ const ProjectsCarousel = () => {
               -translate-x-6
               -translate-y-1/2
               z-20
-
               w-12
               h-12
-
               items-center
               justify-center
-
               rounded-xl
-
               border
               border-[var(--border)]
-
               bg-[var(--card)]
-
               shadow-md
-
               transition-all
               duration-300
-
               hover:border-[var(--accent)]
               hover:text-[var(--accent)]
               hover:scale-105
@@ -113,7 +104,6 @@ const ProjectsCarousel = () => {
         )}
 
         {/* Flecha derecha */}
-
         {featuredProjects.length > cardsPerView && (
           <button
             onClick={next}
@@ -126,25 +116,17 @@ const ProjectsCarousel = () => {
               translate-x-6
               -translate-y-1/2
               z-20
-
               w-12
               h-12
-
               items-center
               justify-center
-
               rounded-xl
-
               border
               border-[var(--border)]
-
               bg-[var(--card)]
-
               shadow-md
-
               transition-all
               duration-300
-
               hover:border-[var(--accent)]
               hover:text-[var(--accent)]
               hover:scale-105
@@ -166,6 +148,7 @@ const ProjectsCarousel = () => {
               transition-transform
               duration-500
               ease-out
+              p-1
             "
             style={{
               transform: `translateX(-${current * (100 / cardsPerView)}%)`,
@@ -236,7 +219,6 @@ const ProjectsCarousel = () => {
         </div>
 
         {/* Contador */}
-
         <div
           className="
             mt-6
