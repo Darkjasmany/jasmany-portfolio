@@ -20,3 +20,9 @@ export const stackData: StackData[] = [
   { name: "bash", color: "bg-gray-500/10 text-gray-500 border-gray-500/20" },
   // { name: "supabase" },
 ];
+
+// Obtener color de la tech
+export const getTechColor = (tech: string): string => {
+  const found = stackData.find(s => s.color === tech.toLowerCase());
+  return found?.color ?? "bg-gray-500/10 text-gray-500 border-gray-500/20";
+};
