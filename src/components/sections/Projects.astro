@@ -2,6 +2,9 @@
 import ProjectsCarousel from "../projects/ProjectsCarousel";
 import Link from "../ui/Link.astro";
 import Title from "../ui/Title.astro";
+
+// client:visible → el componente React se hidrata solo cuando es visible en el viewport. Si el usuario scrolleaba y hacía click en una card antes de que el componente se hidratara, el click no funcionaba porque los event handlers de React no estaban listos.
+// // client:load → hidrata INMEDIATAMENTE al cargar la página. Los click handlers están disponibles desde el primer momento.
 ---
 
 <section id="projects" class="w-full overflow-hidden transition-colors duration-300">

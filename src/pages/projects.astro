@@ -1,0 +1,12 @@
+---
+import ProjectFilter from "../components/sections/ProjectFilter";
+import { projects } from "../data/projectsData";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Proyectos | Jasmany Franco"
+  description="Portfolio de proyectos de Jasmany Franco - Desarrollador Full Stack"
+>
+  <ProjectFilter projects={projects} client:load />
+</Layout>
