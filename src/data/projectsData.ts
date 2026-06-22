@@ -23,7 +23,7 @@ export const projects: Project[] = [
       "Este proyecto es un sistema de gestión documental desarrollado con Node.js para el backend y React con TailwindCSS para el frontend. El sistema permite a los usuarios gestionar documentos de manera eficiente, eliminando procesos manuales en papel y reduciendo tiempos de respuesta. Además, cuenta con funcionalidades como control de acceso, seguimiento de documentos y generación de reportes.",
     problemSolved:
       "Eliminó procesos manuales en papel, reduciendo tiempos de respuesta, y permitió una gestión eficiente de documentos, mejorando el control y busqueda de información.",
-    technologies: ["React", "TailwindCSS", "Node.js", "Express", "Sequelize", "PostgreSQL"],
+    technologies: ["React", "TailwindCSS", "Nodejs", "Express", "Sequelize", "PostgreSQL"],
     image: "/images/projects/dms-1.png",
     images: [
       "/images/projects/dms-2.png",
@@ -51,7 +51,7 @@ export const projects: Project[] = [
     technologies: [
       "TypeScript",
       "React",
-      "Node.js",
+      "Nodejs",
       "Express",
       "Prisma",
       "PostgreSQL",
@@ -73,7 +73,7 @@ export const projects: Project[] = [
       "Plataforma full-stack desarrollada con TypeScript para el manejo de ingresos, egresos y reporting financiero en tiempo real. Incluye autenticación de usuarios, registro de transacciones, y generación de reportes.",
     problemSolved:
       "Generación centralizada para la obtención de deudas de los contribuyente, inluyendo valores nominales, intereses exactos calculados de manera individual en archivos en texto plano y excel.",
-    technologies: ["TypeScript", "React", "Node.js", "Express", "Prisma", "PostgreSQL"],
+    technologies: ["TypeScript", "React", "Nodejs", "Express", "Prisma", "PostgreSQL"],
     image: "/images/placeholder-project.svg",
     images: [],
     youtubeUrl: "https://youtube.com/watch?v=...",
