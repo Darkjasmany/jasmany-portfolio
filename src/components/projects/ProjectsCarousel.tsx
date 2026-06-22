@@ -76,7 +76,8 @@ const ProjectsCarousel = () => {
             onClick={prev}
             aria-label="Proyecto anterior"
             className="
-              hidden lg:flex
+              hidden 
+              md:flex
               absolute
               left-0
               top-1/2
@@ -109,7 +110,8 @@ const ProjectsCarousel = () => {
             onClick={next}
             aria-label="Proyecto siguiente"
             className="
-              hidden lg:flex
+              hidden 
+              md:flex
               absolute
               right-0
               top-1/2
