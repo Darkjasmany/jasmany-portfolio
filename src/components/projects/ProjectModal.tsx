@@ -143,6 +143,8 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
             >
               {project.title}
             </h2>
+
+            {/* Tags con colores */}
             <div
               className="flex 
                   flex-wrap 
@@ -156,7 +158,8 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                       rounded-full 
                       text-sm 
                       font-semibold
-                      border ${getTechColor(tech)}`}
+                      border 
+                      ${getTechColor(tech) || "bg-[var(--tag)] text-[var(--tag-text)] border-[var(--border)]"}`}
                 >
                   {tech}
                 </span>
@@ -307,12 +310,35 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
             </aside>
           </div>
 
+          {/* Barra decorativa */}
+          <div
+            className="relative 
+              w-full 
+              mt-2 
+              mb-1"
+          >
+            <div
+              className="w-full 
+                h-px 
+                bg-[var(--border)]"
+            ></div>
+            <div
+              className="absolute 
+                top-1/2 
+                left-1/2 
+                -translate-x-1/2 
+                -translate-y-1/2 
+                w-2 
+                h-2 
+                rotate-45 
+                bg-[var(--accent)]"
+            ></div>
+          </div>
+
           {/* ── GALERÍA: carrusel automático ── */}
           {allImages.length > 0 && (
             <section
               className="mt-8 
-                        border-t 
-                        border-[var(--border)] 
                         pt-8"
             >
               <h3
