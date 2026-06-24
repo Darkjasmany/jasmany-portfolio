@@ -1,0 +1,19 @@
+---
+import { projects } from "../../data/projectsData";
+import ProjectHub from "../projects/ProjectHub";
+import Title from "../ui/Title.astro";
+---
+
+<section id="hero-project" class="w-full
+    overflow-hidden transition-colors duration-300">
+  <div
+    class="z-10
+      w-full max-w-7xl mx-auto
+      px-4 sm:px-5 md:px-6 lg:px-10
+      pt-24 md:pt-26 lg:pt-28
+      pb-10 md:pb-16"
+  >
+    <Title title="Todos los" span="Proyectos" />
+    <ProjectHub projects={projects} client:load />
+  </div>
+</section>

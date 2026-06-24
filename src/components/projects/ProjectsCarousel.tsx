@@ -162,7 +162,7 @@ const ProjectsCarousel = () => {
                 className="
                   w-full
                   md:w-[calc(50%-12px)]
-                  xl:w-[calc(33.333%-16px)]
+                  xl:w-[calc(33.333%-10px)]
                   shrink-0
                 "
               >
