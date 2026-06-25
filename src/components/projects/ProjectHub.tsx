@@ -22,7 +22,7 @@ const ProjectHub: React.FC<ProjectHubProps> = ({ projects }) => {
   return (
     <>
       <FilterButtons tags={allTags} selected={selected} onSelect={setSelected} />
-      <ProjectGrid />
+      <ProjectGrid projects={filtered} onCardClick={setModalProject} />
       <ProjectModal project={modalProject} onClose={() => setModalProject(null)} />
     </>
   );
