@@ -39,7 +39,10 @@ const ProjectFilter = ({ projects }: Props) => {
   const filtered = selected ? projects.filter(p => p.technologies.includes(selected)) : projects;
 
   return (
-    <section className="relative w-full py-24 md:py-32 px-6 md:px-16 lg:px-24 overflow-hidden">
+    <section
+      className="relative 
+            w-full py-24 md:py-32 px-6 md:px-16 lg:px-24 overflow-hidden"
+    >
       <div className="max-w-6xl mx-auto">
         {/* Título */}
         <div className="mb-12">
