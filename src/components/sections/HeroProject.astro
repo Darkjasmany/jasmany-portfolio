@@ -1,6 +1,6 @@
 ---
 import { projects } from "../../data/projectsData";
-import ProjectHub from "../projects/ProjectHub";
+import ProjectsGallery from "../projects/ProjectsGallery";
 import Title from "../ui/Title.astro";
 ---
 
@@ -14,6 +14,6 @@ import Title from "../ui/Title.astro";
       pb-10 md:pb-16"
   >
     <Title title="Todos los" span="Proyectos" />
-    <ProjectHub projects={projects} client:load />
+    <ProjectsGallery projects={projects} client:load />
   </div>
 </section>

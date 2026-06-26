@@ -7,13 +7,11 @@ import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 
 const ProjectsCarousel = () => {
-  const featuredProjects = projects.filter(project => project.featured);
-
   const [current, setCurrent] = useState(0);
-
   const [modalProject, setModalProject] = useState<Project | null>(null);
-
   const [cardsPerView, setCardsPerView] = useState(3);
+
+  const featuredProjects = projects.filter(project => project.featured);
 
   useEffect(() => {
     const updateCardsPerView = () => {
