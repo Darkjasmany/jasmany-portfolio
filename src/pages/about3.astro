@@ -1,0 +1,241 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const curriculumUrl = "https://drive.google.com/file/d/1VBkWbmi9Pjx7BVrrSfI872oBf-D52YQD/view";
+---
+
+<Layout
+  title="Sobre Mí | Jasmany Franco"
+  description="Conoce más sobre Jasmany Franco, Ingeniero en Sistemas y Full Stack Developer."
+>
+  <section class="pt-32 pb-24 px-6 md:px-12 lg:px-20">
+    <div class="max-w-4xl mx-auto">
+      <!-- ========================= -->
+      <!-- HERO -->
+      <!-- ========================= -->
+
+      <div class="mb-24">
+        <p class="text-sm font-semibold tracking-[0.2em] uppercase text-[var(--accent)] mb-4">
+          Sobre mí
+        </p>
+
+        <h1
+          class="text-[clamp(2.5rem,6vw,4.5rem)] font-bold text-[var(--hero-text)] leading-tight mb-8"
+        >
+          Construyo software que resuelve problemas reales.
+        </h1>
+
+        <div class="space-y-6 text-lg leading-relaxed text-[var(--hero-desc)]">
+          <p>
+            Soy Ingeniero en Sistemas y actualmente me desempeño como Analista de Sistemas en el
+            Gobierno Autónomo Descentralizado Municipal del cantón Naranjal.
+          </p>
+
+          <p>
+            Durante más de una década he trabajado en infraestructura, soporte empresarial,
+            administración de servidores, bases de datos, virtualización y desarrollo de software
+            para el sector público.
+          </p>
+
+          <p>
+            Actualmente mi enfoque principal está en el desarrollo Full Stack utilizando React,
+            TypeScript, Node.js y PostgreSQL para construir aplicaciones modernas, escalables y
+            fáciles de mantener.
+          </p>
+        </div>
+
+        <div class="mt-10">
+          <a
+            href={curriculumUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex
+              items-center
+              gap-2
+              px-5
+              py-3
+              rounded-xl
+              bg-[var(--accent)]
+              text-white
+              font-semibold
+              hover:brightness-110
+              transition-all"
+          >
+            Descargar CV
+          </a>
+        </div>
+      </div>
+
+      <!-- ========================= -->
+      <!-- EXPERIENCIA -->
+      <!-- ========================= -->
+
+      <div class="mb-24">
+        <h2 class="text-3xl font-bold text-[var(--hero-text)] mb-10">Experiencia</h2>
+
+        <div class="border-l-2 border-[var(--border)] pl-8 space-y-12">
+          <div class="relative">
+            <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-[var(--accent)]"></div>
+
+            <div class="flex flex-col gap-2">
+              <span class="text-sm font-medium text-[var(--accent)]"> 2014 — Actualidad </span>
+
+              <h3 class="text-xl font-bold text-[var(--hero-text)]">Analista de Sistemas</h3>
+
+              <p class="text-[var(--hero-desc)]">GAD Municipal del cantón Naranjal</p>
+
+              <p class="leading-relaxed text-[var(--hero-desc)] mt-2">
+                Desarrollo de sistemas institucionales, administración de infraestructura
+                tecnológica, virtualización con Proxmox, integración bancaria, bases de datos,
+                seguridad informática y soporte estratégico para múltiples departamentos
+                municipales.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================= -->
+      <!-- STACK -->
+      <!-- ========================= -->
+
+      <div class="mb-24">
+        <h2 class="text-3xl font-bold text-[var(--hero-text)] mb-10">Stack Tecnológico</h2>
+
+        <div class="space-y-8">
+          <div>
+            <h3 class="text-sm uppercase tracking-wider font-semibold text-[var(--accent)] mb-3">
+              Frontend
+            </h3>
+
+            <div class="flex flex-wrap gap-3">
+              <span class="about-tag">React</span>
+              <span class="about-tag">TypeScript</span>
+              <span class="about-tag">JavaScript</span>
+              <span class="about-tag">Astro</span>
+              <span class="about-tag">TailwindCSS</span>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-sm uppercase tracking-wider font-semibold text-[var(--accent)] mb-3">
+              Backend
+            </h3>
+
+            <div class="flex flex-wrap gap-3">
+              <span class="about-tag">Node.js</span>
+              <span class="about-tag">Express</span>
+              <span class="about-tag">Sequelize</span>
+              <span class="about-tag">REST APIs</span>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-sm uppercase tracking-wider font-semibold text-[var(--accent)] mb-3">
+              Bases de Datos
+            </h3>
+
+            <div class="flex flex-wrap gap-3">
+              <span class="about-tag">PostgreSQL</span>
+              <span class="about-tag">MySQL</span>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-sm uppercase tracking-wider font-semibold text-[var(--accent)] mb-3">
+              Infraestructura
+            </h3>
+
+            <div class="flex flex-wrap gap-3">
+              <span class="about-tag">Linux</span>
+              <span class="about-tag">Docker</span>
+              <span class="about-tag">Proxmox</span>
+              <span class="about-tag">VPN</span>
+              <span class="about-tag">SSL</span>
+              <span class="about-tag">Git</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================= -->
+      <!-- FILOSOFÍA -->
+      <!-- ========================= -->
+
+      <div class="mb-24">
+        <h2 class="text-3xl font-bold text-[var(--hero-text)] mb-8">Mi enfoque</h2>
+
+        <div class="border border-[var(--border)] rounded-2xl p-8 bg-[var(--card)]">
+          <p class="leading-relaxed text-[var(--hero-desc)]">
+            Creo en construir software simple, mantenible y centrado en resolver necesidades reales.
+            Prefiero soluciones claras antes que complejidad innecesaria, priorizando siempre la
+            experiencia del usuario, el rendimiento y la escalabilidad a largo plazo.
+          </p>
+        </div>
+      </div>
+
+      <!-- ========================= -->
+      <!-- FORMACIÓN -->
+      <!-- ========================= -->
+
+      <div class="mb-24">
+        <h2 class="text-3xl font-bold text-[var(--hero-text)] mb-10">Formación</h2>
+
+        <div class="space-y-8">
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--hero-text)]">
+              Ingeniería en Sistemas Computacionales
+            </h3>
+
+            <p class="text-[var(--hero-desc)] mt-1">Universidad de Guayaquil</p>
+
+            <p class="text-sm text-[var(--muted)] mt-1">Registro SENESCYT: 1006-2017-1872471</p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--hero-text)]">Aprendizaje Continuo</h3>
+
+            <p class="text-[var(--hero-desc)] mt-2">
+              Formación permanente en React, TypeScript, Node.js, Docker, PostgreSQL, Git, Linux y
+              arquitectura de software.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================= -->
+      <!-- CTA -->
+      <!-- ========================= -->
+
+      <div class="border-t
+          border-[var(--border)]
+          pt-12
+          text-center">
+        <h2 class="text-2xl font-bold text-[var(--hero-text)] mb-3">¿Quieres ver mi trabajo?</h2>
+
+        <p class="text-[var(--hero-desc)] mb-6">
+          Puedes explorar mis proyectos y repositorios públicos.
+        </p>
+
+        <a
+          href="https://github.com/Darkjasmany"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex
+            items-center
+            gap-2
+            px-5
+            py-3
+            rounded-xl
+            bg-[var(--accent)]
+            text-white
+            font-semibold
+            hover:brightness-110
+            transition-all"
+        >
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

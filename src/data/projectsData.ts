@@ -15,6 +15,23 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "portfolio",
+    title: "Portfolio Personal",
+    description:
+      "Mi sitio web personal, donde muestro mi perfil, proyectos y experiencia como desarrollador.",
+    longDescription:
+      "Este portafolio es mi carta de presentación digital. Construido con Astro y React, utiliza TailwindCSS v4 para el diseño responsive con modo oscuro/claro. Incluye un carrusel interactivo de proyectos con React, animaciones suaves, y una página about detallada con mi experiencia laboral y formación. El diseño es minimalista y está optimizado para rendimiento, con imágenes en formato webp y lazy loading.",
+    problemSolved:
+      "Proporciona una presencia profesional en línea que centraliza mi perfil, proyectos, habilidades y experiencia en un solo lugar, facilitando que reclutadores y colaboradores conozcan mi trabajo.",
+    technologies: ["Astro", "React", "TypeScript", "TailwindCSS"],
+    image: "/images/placeholder-project.svg",
+    images: [],
+    youtubeUrl: "",
+    demoUrl: "",
+    githubUrl: "https://github.com/Darkjasmany/jasmany-portfolio",
+    featured: true,
+  },
+  {
     slug: "DMS",
     title: "Sistema de Gestión Documental",
     description:

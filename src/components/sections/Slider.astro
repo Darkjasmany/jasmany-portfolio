@@ -17,7 +17,7 @@ import { stackData } from "../../data/stackData";
             loading="lazy"
           />
           <span class="text-lg font-medium text-(--hero-text)">
-            {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
+            {item.displayName ?? item.name.charAt(0).toUpperCase() + item.name.slice(1)}
           </span>
         </div>
       ))
