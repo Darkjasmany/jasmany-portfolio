@@ -40,7 +40,7 @@ export const projects: Project[] = [
       "Este proyecto es un sistema de gestión documental desarrollado con Node.js para el backend y React con TailwindCSS para el frontend. El sistema permite a los usuarios gestionar documentos de manera eficiente, eliminando procesos manuales en papel y reduciendo tiempos de respuesta. Además, cuenta con funcionalidades como control de acceso, seguimiento de documentos y generación de reportes.",
     problemSolved:
       "Eliminó procesos manuales en papel, reduciendo tiempos de respuesta, y permitió una gestión eficiente de documentos, mejorando el control y busqueda de información.",
-    technologies: ["React", "TailwindCSS", "Nodejs", "Express", "Sequelize", "PostgreSQL"],
+    technologies: ["React", "Nodejs", "Express", "Sequelize", "TailwindCSS", "PostgreSQL"],
     image: "/images/projects/dms-1.png",
     images: [
       "/images/projects/dms-2.png",

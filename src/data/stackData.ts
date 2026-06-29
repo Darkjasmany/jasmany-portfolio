@@ -22,12 +22,12 @@ export const stackData: StackData[] = [
     name: "nodeJs",
     displayName: "Node.js",
     color: "bg-green-500/10 text-green-500 border-green-500/20",
-    category: "backend",
+    category: "backend_db",
   },
   {
     name: "express",
     color: "bg-gray-500/10 text-gray-500 border-gray-500/20",
-    category: "backend",
+    category: "backend_db",
   },
   {
     name: "typeScript",
@@ -51,28 +51,28 @@ export const stackData: StackData[] = [
     name: "postgresql",
     displayName: "PostgreSQL",
     color: "bg-cyan-500/10 text-cyan-500 border-cyan-500/20",
-    category: "bd",
+    category: "backend_db",
   },
   {
     name: "mongo",
     displayName: "MongoDB",
     color: "bg-green-500/10 text-green-500 border-green-500/20",
-    category: "bd",
+    category: "backend_db",
   },
   {
     name: "sequelize",
     color: "bg-violet-500/10 text-violet-500 border-violet-500/20",
-    category: "backend",
+    category: "backend_db",
   },
   {
     name: "prisma",
     color: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20",
-    category: "backend",
+    category: "backend_db",
   },
   {
     name: "mongoose",
     color: "bg-red-300/10 text-red-300 border-red-300/20",
-    category: "backend",
+    category: "backend_db",
   },
   { name: "git", color: "bg-red-500/10 text-red-500 border-red-500/20", category: "devops" },
   {

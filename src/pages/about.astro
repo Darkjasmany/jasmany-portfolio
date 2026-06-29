@@ -1,6 +1,5 @@
 ---
 import SkillCard from "../components/ui/SkillCard.astro";
-import SpecialtyCard from "../components/ui/SpecialtyCard.astro";
 import Title from "../components/ui/Title.astro";
 import { skills } from "../data/specialtiesData";
 import { stackData } from "../data/stackData";
@@ -8,13 +7,12 @@ import Layout from "../layouts/Layout.astro";
 
 const curriculumUrl = "https://drive.google.com/file/d/1VBkWbmi9Pjx7BVrrSfI872oBf-D52YQD/view";
 
-const categories = ["frontend", "backend", "bd", "devops"];
+const categories = ["frontend", "backend_db", "devops"];
 
 const categoryMeta: Record<string, { title: string; icon: string }> = {
-  frontend: { title: "Frontend", icon: "react" },
-  backend: { title: "Backend", icon: "nodeJs" },
-  bd: { title: "Bases de Datos", icon: "database" },
-  devops: { title: "DevOps & Herramientas", icon: "docker" },
+  frontend: { title: "Frontend & Responsive Web Design", icon: "development" },
+  backend_db: { title: "Backend & Bases de Datos", icon: "database" },
+  devops: { title: "DevOps & Herramientas", icon: "infrastructure" },
 };
 ---
 
@@ -76,17 +74,17 @@ const categoryMeta: Record<string, { title: string; icon: string }> = {
       <div class="w-full overflow-hidden transition-colors duration-300 mb-16">
         <div
           class="flex-1 flex
-                flex-col
-                items-start
-                gap-8
-                md:gap-6
-                select-none
-                min-w-0"
+            flex-col
+            items-start
+            gap-8
+            md:gap-6
+            select-none
+            min-w-0"
         >
-          <Title title="Habilidades" span="Técnicas" />
+          <Title title="Especialización" span="Técnica" />
           <div
             class="grid
-              grid-cols-1 md:grid-cols-4
+              grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
               gap-5 md:gap-6
               w-full"
           >
@@ -99,20 +97,13 @@ const categoryMeta: Record<string, { title: string; icon: string }> = {
                     .join(", ") + ".";
                 const meta = categoryMeta[cat];
                 return (
-                  <SpecialtyCard
-                    title={meta.title}
-                    icon={meta.icon}
-                    description={techNameString}
-                    longDescription={techNameString}
-                  />
+                  <SkillCard title={meta.title} description={techNameString} icon={meta.icon} />
                 );
               })
             }
           </div>
         </div>
       </div>
-
-      <hr class="border-[var(--border)] mb-16" />
 
       {/* ─── HABILIDADES BLANDAS ─── */}
       <div class="w-full overflow-hidden transition-colors duration-300 mb-16">
@@ -125,7 +116,7 @@ const categoryMeta: Record<string, { title: string; icon: string }> = {
                 select-none
                 min-w-0"
         >
-          <Title title="Habilidades" span="Blandas" />
+          <Title title="Cómo" span="Trabajo" />
           <div
             class="grid
               grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
