@@ -1,8 +1,19 @@
 ---
+import SpecialtyCard from "../components/ui/SpecialtyCard.astro";
 import Title from "../components/ui/Title.astro";
+import { stackData } from "../data/stackData";
 import Layout from "../layouts/Layout.astro";
 
 const curriculumUrl = "https://drive.google.com/file/d/1VBkWbmi9Pjx7BVrrSfI872oBf-D52YQD/view";
+
+const categories = ["frontend", "backend", "bd", "devops"];
+
+const categoryMeta: Record<string, { title: string; icon: string }> = {
+  frontend: { title: "Frontend", icon: "react" },
+  backend: { title: "Backend", icon: "nodeJs" },
+  bd: { title: "Bases de Datos", icon: "database" },
+  devops: { title: "DevOps & Herramientas", icon: "docker" },
+};
 ---
 
 <Layout
@@ -21,7 +32,7 @@ const curriculumUrl = "https://drive.google.com/file/d/1VBkWbmi9Pjx7BVrrSfI872oB
       <header class="mb-16">
         <Title title="Sobre" span="Mí" />
         <div
-          class="my-6 prose prose-lg dark:prose-invert max-w-none text-[var(--hero-desc)] space-y-6"
+          class="my-6 prose prose-lg dark:prose-invert max-w-none text-[var(--hero-desc)] space-y-6 text-lg"
         >
           <p>
             Ingeniero en Sistemas con una sólida trayectoria en el sector público, especializado en
@@ -56,6 +67,73 @@ const curriculumUrl = "https://drive.google.com/file/d/1VBkWbmi9Pjx7BVrrSfI872oB
           </a>
         </div>
       </header>
+
+      <hr class="border-[var(--border)] mb-16" />
+
+      {/* ─── HABILIDADES TÉCNICAS ─── */}
+      <div class="w-full overflow-hidden transition-colors duration-300 mb-16">
+        <div
+          class="flex-1 flex
+                flex-col
+                items-start
+                gap-8
+                md:gap-6
+                select-none
+                min-w-0"
+        >
+          <Title title="Habilidades" span="Técnicas" />
+          <div
+            class="grid
+              grid-cols-1 md:grid-cols-4
+              gap-5 md:gap-6
+              w-full"
+          >
+            {
+              categories.map(cat => {
+                const techs = stackData.filter(t => t.category === cat);
+                const techNameString =
+                  techs
+                    .map(t => t.displayName || t.name.charAt(0).toUpperCase() + t.name.slice(1))
+                    .join(", ") + ".";
+                const meta = categoryMeta[cat];
+                return (
+                  <SpecialtyCard
+                    title={meta.title}
+                    icon={meta.icon}
+                    description={techNameString}
+                    longDescription={techNameString}
+                  />
+                );
+              })
+            }
+          </div>
+        </div>
+      </div>
+
+      <hr class="border-[var(--border)] mb-16" />
+
+      {/* ─── HABILIDADES BLANDAS ─── */}
+      <div class="w-full overflow-hidden transition-colors duration-300 mb-16">
+        <div
+          class="flex-1 flex
+                flex-col
+                items-start
+                gap-8
+                md:gap-6
+                select-none
+                min-w-0"
+        >
+          <Title title="Habilidades" span="Blandas" />
+          <div
+            class="grid
+              grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
+              gap-5 md:gap-6
+              w-full"
+          >
+            hola
+          </div>
+        </div>
+      </div>
 
       <hr class="border-[var(--border)] mb-16" />
     </div>

@@ -32,3 +32,36 @@ export const specialtiesData = [
       "Optimización e integración segura de datos con foco en rendimiento, integridad y escalabilidad.",
   },
 ];
+
+export const skills = [
+  {
+    title: "Liderazgo",
+    description: "Coordinación de equipos técnicos y dirección de departamento.",
+    path: "",
+  },
+  {
+    title: "Resolución de Problemas",
+    description: "Capacidad analítica para diagnosticar y resolver bajo presión.",
+    path: "",
+  },
+  {
+    title: "Aprendizaje Autodidacta",
+    description: "Actualización constante en nuevas tecnologías y tendencias.",
+    path: "",
+  },
+  {
+    title: "Trabajo en Equipo",
+    description: "Colaboración interdisciplinaria y soporte a otros GADs.",
+    path: "",
+  },
+  {
+    title: "Adaptabilidad",
+    description: "Experiencia multisectorial: desarrollo, infraestructura, soporte.",
+    path: "",
+  },
+  {
+    title: "Comunicación Efectiva",
+    description: "Redacción técnica clara y comunicación con equipos multidisciplinarios.",
+    path: "",
+  },
+];
