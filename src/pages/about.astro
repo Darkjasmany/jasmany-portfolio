@@ -1,6 +1,8 @@
 ---
+import SkillCard from "../components/ui/SkillCard.astro";
 import SpecialtyCard from "../components/ui/SpecialtyCard.astro";
 import Title from "../components/ui/Title.astro";
+import { skills } from "../data/specialtiesData";
 import { stackData } from "../data/stackData";
 import Layout from "../layouts/Layout.astro";
 
@@ -130,7 +132,11 @@ const categoryMeta: Record<string, { title: string; icon: string }> = {
               gap-5 md:gap-6
               w-full"
           >
-            hola
+            {
+              skills.map(skill => (
+                <SkillCard title={skill.title} description={skill.description} path={skill.path} />
+              ))
+            }
           </div>
         </div>
       </div>
