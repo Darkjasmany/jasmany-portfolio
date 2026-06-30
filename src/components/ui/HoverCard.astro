@@ -1,0 +1,24 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+---
+
+<div
+  class:list={[
+    "group relative rounded-xl border border-[var(--border)] bg-[var(--card)] shadow-md transition-all duration-300 hover:border-[var(--accent)] hover:-translate-y-1 hover:shadow-lg overflow-hidden",
+    className,
+  ]}
+>
+  <div
+    class="absolute top-0 left-0 h-[3px] w-0 bg-[var(--accent)] transition-all duration-300 group-hover:w-full z-0"
+  ></div>
+  <div
+    class="absolute inset-0 bg-gradient-to-br from-[var(--accent)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+  ></div>
+  <div class="relative z-10">
+    <slot />
+  </div>
+</div>

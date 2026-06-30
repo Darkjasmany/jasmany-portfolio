@@ -16,14 +16,14 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: "portfolio",
-    title: "Portfolio Personal",
+    title: "jasmany-portfolio",
     description:
-      "Mi sitio web personal, donde muestro mi perfil, proyectos y experiencia como desarrollador.",
+      "Portafolio profesional con modo oscuro/claro, carrusel de proyectos interactivo y diseño responsivo.",
     longDescription:
-      "Este portafolio es mi carta de presentación digital. Construido con Astro y React, utiliza TailwindCSS v4 para el diseño responsive con modo oscuro/claro. Incluye un carrusel interactivo de proyectos con React, animaciones suaves, y una página about detallada con mi experiencia laboral y formación. El diseño es minimalista y está optimizado para rendimiento, con imágenes en formato webp y lazy loading.",
+      "Portafolio personal diseñado como carta de presentación digital profesional. Construido con Astro 7 y React 19, utiliza TailwindCSS v4 para el sistema de diseño con modo oscuro/claro completo. La arquitectura sigue el patrón de Astro Islands, combinando componentes estáticos (.astro) con islas interactivas (React) para un rendimiento óptimo. Incluye un carrusel de proyectos con gestos táctiles, galería con filtros por tecnología, modal con presentación tipo slide, efecto typewriter en el hero, slider infinito de tecnologías, y una página about detallada con línea de tiempo profesional. Cada componente se comunica mediante props tipadas con TypeScript estricto. Las imágenes se optimizan con lazy loading y el fondo usa variables CSS personalizadas para transiciones suaves entre temas.",
     problemSolved:
-      "Proporciona una presencia profesional en línea que centraliza mi perfil, proyectos, habilidades y experiencia en un solo lugar, facilitando que reclutadores y colaboradores conozcan mi trabajo.",
-    technologies: ["Astro", "React", "TypeScript", "TailwindCSS"],
+      "Proporciona una presencia profesional en línea que centraliza perfil, proyectos, habilidades y experiencia en un solo lugar. El diseño modular permite escalar el contenido sin reestructurar la app, y el sistema de temas garantiza accesibilidad visual en cualquier entorno.",
+    technologies: ["Astro", "React", "TypeScript", "TailwindCSS", "Nodejs"],
     image: "/images/placeholder-project.svg",
     images: [],
     youtubeUrl: "",

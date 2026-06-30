@@ -309,32 +309,6 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                 )}
             </aside>
           </div>
-
-          {/* Barra decorativa */}
-          <div
-            className="relative 
-              w-full 
-              mt-2 
-              mb-1"
-          >
-            <div
-              className="w-full 
-                h-px 
-                bg-[var(--border)]"
-            ></div>
-            <div
-              className="absolute 
-                top-1/2 
-                left-1/2 
-                -translate-x-1/2 
-                -translate-y-1/2 
-                w-2 
-                h-2 
-                rotate-45 
-                bg-[var(--accent)]"
-            ></div>
-          </div>
-
           {/* ── GALERÍA: carrusel automático ── */}
           {allImages.length > 0 && (
             <section

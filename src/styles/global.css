@@ -89,42 +89,41 @@ header {
 
 /* ── TOKENS MODO OSCURO ── */
 [data-theme="dark"] {
-  /* Imagen de Assets para Modo Oscuro */
-  --bg-image: url("../assets/backgrounds/cool-background-dark.png");
+  --bg-image: none;
 
-  --hero-bg: #0f1117;
-  --hero-text: #e8ecf4;
-  --hero-desc: #8a9ab8;
-  --hero-icon-border: #3a4a60;
+  --hero-bg: #111827;
+  --hero-text: #f1f5f9;
+  --hero-desc: #94a3b8;
+  --hero-icon-border: #334155;
 
-  --bg: #0f1117;
-  --bg2: #161b25;
-  --bg3: #1c2230;
-  --text: #e8ecf4;
-  --muted: #7a8aa8;
-  --muted2: #4a5a78;
+  --bg: #111827;
+  --bg2: #1e293b;
+  --bg3: #263348;
+  --text: #f1f5f9;
+  --muted: #64748b;
+  --muted2: #475569;
 
-  --accent: #5b9bff;
-  --accent-light: #1a2540;
-  --accent-border: #2a4070;
+  --accent: #60a5fa;
+  --accent-light: #1e3a5f;
+  --accent-border: #1e40af;
 
-  --green: #34d399;
-  --green-bg: #022c22;
+  --green: #4ade80;
+  --green-bg: #052e16;
   --amber: #fbbf24;
   --amber-bg: #1c1400;
 
-  --border: #1e2535;
-  --border2: #2a3548;
-  --card: #161b25;
-  --tag: #1a2535;
-  --tag-text: #8a9ab8;
+  --border: #1e293b;
+  --border2: #334155;
+  --card: #1e293b;
+  --tag: #1e293b;
+  --tag-text: #94a3b8;
 
-  --shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.25);
-  --shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.5), 0 16px 40px rgba(0, 0, 0, 0.35);
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 8px 24px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.6), 0 16px 40px rgba(0, 0, 0, 0.4);
 
-  --card-layer-1: rgba(255, 255, 255, 0.08);
-  --card-layer-2: rgba(255, 255, 255, 0.12);
-  --card-layer-3: rgba(255, 255, 255, 0.16);
+  --card-layer-1: rgba(255, 255, 255, 0.06);
+  --card-layer-2: rgba(255, 255, 255, 0.10);
+  --card-layer-3: rgba(255, 255, 255, 0.14);
 }
 
 [data-theme="dark"] #card {

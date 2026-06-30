@@ -40,7 +40,7 @@ import ThemeToggle from "../ui/ThemeToggle";
         hover:scale-105
         select-none"
     >
-      Jasmany<span class="text-[#00a3ff]">Dev</span>
+      Jasmany<span class="text-[var(--accent)]">Dev</span>
     </a>
 
     <!-- Desktop nav + toggle -->
@@ -175,14 +175,8 @@ import ThemeToggle from "../ui/ThemeToggle";
   <!-- Crear la caja que funcionara como el hover en cada uno de los menus -->
   <div
     id="menu-backdrop"
-    class={`
-            absolute bg-black/5 backdrop-blur-lg rounded
-            translate-x-(--left) translate-y-(--top)
-            left-0 top-0
-            w-(--width) h-(--height)
-            transition-all duration-500
-            ease-in-out opacity-0 -z-10
-    `}
+    class="absolute bg-black/5 backdrop-blur-lg rounded left-0 top-0 transition-all duration-500 ease-in-out opacity-0 -z-10"
+    style="translate: var(--left) var(--top); width: var(--width); height: var(--height);"
   >
   </div>
 </header>

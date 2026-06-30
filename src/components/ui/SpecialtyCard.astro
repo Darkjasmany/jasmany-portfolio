@@ -1,4 +1,7 @@
 ---
+import HoverCard from "./HoverCard.astro";
+import { getSvgContent } from "../../utils/svg";
+
 interface Props {
   title: string;
   description: string;
@@ -8,73 +11,15 @@ interface Props {
 }
 
 const { title, description, icon, category = "", longDescription } = Astro.props;
-
-// 1. Importamos todos los SVGs de la carpeta de forma dinámica
-const githubSvgs = import.meta.glob("/public/svg/*.svg", { as: "raw" });
-const svgPath = `/public/svg/${icon}.svg`;
-
-// 2. Obtenemos el contenido crudo del SVG
-const svgRaw = githubSvgs[svgPath] ? await githubSvgs[svgPath]() : "";
+const svgRaw = getSvgContent(icon);
 ---
 
-<div
-  class="group
-          relative
-          p-5
-          md:p-6
-          rounded-xl
-          border
-          border-[var(--border)]
-          bg-[var(--card)]
-          shadow-md
-          transition-all
-          duration-300
-          hover:border-[var(--accent)]
-          hover:-translate-y-1
-          hover:shadow-lg
-          overflow-hidden"
->
-  <!-- Línea superior animada -->
-  <div
-    class="absolute
-      top-0
-      left-0
-      h-[3px]
-      w-0
-      bg-[var(--accent)]
-      transition-all
-      duration-300
-      group-hover:w-full"
-  >
-  </div>
-
-  <!-- Glow suave -->
-  <div
-    class="absolute
-      inset-0
-      bg-gradient-to-br
-      from-[var(--accent)]/5
-      to-transparent
-      opacity-0
-      group-hover:opacity-100
-      transition-opacity
-      duration-300
-      pointer-events-none"
-  >
-  </div>
-
-  <div class="relative z-10">
+<HoverCard>
+  <div class="p-5 md:p-6">
     {
       category && (
         <p
-          class="
-            text-[11px]
-            uppercase
-            tracking-[0.25em]
-            text-[var(--accent)]
-            font-semibold
-            mb-3
-          "
+          class="text-[11px] uppercase tracking-[0.25em] text-[var(--accent)] font-semibold mb-3"
         >
           {category}
         </p>
@@ -82,45 +27,28 @@ const svgRaw = githubSvgs[svgPath] ? await githubSvgs[svgPath]() : "";
     }
 
     <div class="flex items-center gap-4 mb-3">
-      <div
-        class="w-8 h-8
-          shrink-0
-          flex items-center justify-center
-          text-[var(--accent)]
-          transition-transform
-          duration-300
-          group-hover:scale-110
-          [&>svg]:w-full
-          [&>svg]:h-full"
-        set:html={svgRaw}
-      />
+      {
+        svgRaw && (
+          <div
+            class="w-8 h-8 shrink-0 flex items-center justify-center text-[var(--accent)] transition-transform duration-300 group-hover:scale-110 [&>svg]:w-full [&>svg]:h-full"
+            set:html={svgRaw}
+          />
+        )
+      }
 
       <h3
-        class="text-xl
-          md:text-2xl
-          font-bold
-          leading-tight
-          text-[var(--hero-text)]"
+        class="text-xl md:text-2xl font-bold leading-tight text-[var(--hero-text)]"
       >
         {title}
       </h3>
     </div>
 
-    <p class="text-sm
-        md:hidden
-        leading-relaxed
-        text-[var(--hero-desc)]">
+    <p class="text-sm md:hidden leading-relaxed text-[var(--hero-desc)]">
       {description}
     </p>
 
-    <p
-      class="hidden
-        md:block
-        text-base
-        leading-relaxed
-        text-[var(--hero-desc)]"
-    >
+    <p class="hidden md:block text-base leading-relaxed text-[var(--hero-desc)]">
       {longDescription}
     </p>
   </div>
-</div>
+</HoverCard>

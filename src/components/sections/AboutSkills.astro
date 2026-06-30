@@ -1,0 +1,37 @@
+---
+import Title from "../ui/Title.astro";
+import SkillCard from "../ui/SkillCard.astro";
+import { skills } from "../../data/specialtiesData";
+import { stackData } from "../../data/stackData";
+
+const categories = ["frontend", "backend_db", "devops"];
+
+const categoryMeta: Record<string, { title: string; icon: string }> = {
+  frontend: { title: "Frontend & Responsive Web Design", icon: "development" },
+  backend_db: { title: "Backend & Bases de Datos", icon: "database" },
+  devops: { title: "DevOps & Herramientas", icon: "infrastructure" },
+};
+---
+
+<section class="w-full overflow-hidden transition-colors duration-300">
+  <div class="z-10 w-full max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-10 pb-10 md:pb-16">
+    <div class="flex-1 flex flex-col items-start gap-8 md:gap-6 select-none min-w-0">
+      <Title title="Especialización " span="Técnica" />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 w-full">
+        {
+          categories.map(cat => {
+            const techs = stackData.filter(t => t.category === cat);
+            const techNameString =
+              techs
+                .map(t => t.displayName || t.name.charAt(0).toUpperCase() + t.name.slice(1))
+                .join(", ") + ".";
+            const meta = categoryMeta[cat];
+            return (
+              <SkillCard title={meta.title} description={techNameString} icon={meta.icon} />
+            );
+          })
+        }
+      </div>
+    </div>
+  </div>
+</section>
