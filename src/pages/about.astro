@@ -30,7 +30,7 @@ const categoryMeta: Record<string, { title: string; icon: string }> = {
     >
       {/* ─── ENCABEZADO Y BIOGRAFÍA ─── */}
       <header class="mb-16">
-        <Title title="Sobre" span="Mí" />
+        <Title title="Sobre " span="Mí" />
         <div
           class="my-6 prose prose-lg dark:prose-invert max-w-none text-[var(--hero-desc)] space-y-6 text-lg"
         >
@@ -53,18 +53,36 @@ const categoryMeta: Record<string, { title: string; icon: string }> = {
             href={curriculumUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold border border-[var(--border)] bg-[var(--card)] text-[var(--hero-text)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold
+            bg-[var(--accent)] text-white
+            hover:brightness-110 hover:shadow-lg hover:shadow-[var(--accent)]/25
+            active:scale-95 transition-all"
           >
-            Ver Currículum
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Descargar CV
           </a>
-          <a
+          <!-- <a
             href="https://github.com/Darkjasmany"
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold bg-[var(--accent)] text-white hover:brightness-110 transition-all"
           >
             GitHub
-          </a>
+          </a> -->
         </div>
       </header>
 
@@ -81,7 +99,7 @@ const categoryMeta: Record<string, { title: string; icon: string }> = {
             select-none
             min-w-0"
         >
-          <Title title="Especialización" span="Técnica" />
+          <Title title="Especialización " span="Técnica" />
           <div
             class="grid
               grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
@@ -106,7 +124,7 @@ const categoryMeta: Record<string, { title: string; icon: string }> = {
       </div>
 
       {/* ─── HABILIDADES BLANDAS ─── */}
-      <div class="w-full overflow-hidden transition-colors duration-300 mb-16">
+      <section class="w-full overflow-hidden transition-colors duration-300 mb-16">
         <div
           class="flex-1 flex
                 flex-col
@@ -116,7 +134,7 @@ const categoryMeta: Record<string, { title: string; icon: string }> = {
                 select-none
                 min-w-0"
         >
-          <Title title="Cómo" span="Trabajo" />
+          <Title title="Cómo " span="Trabajo" />
           <div
             class="grid
               grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
@@ -130,9 +148,121 @@ const categoryMeta: Record<string, { title: string; icon: string }> = {
             }
           </div>
         </div>
-      </div>
+      </section>
 
       <hr class="border-[var(--border)] mb-16" />
+
+      {/* ─── TRAYECTORIA (Línea de tiempo minimalista) ─── */}
+      <section class="w-full overflow-hidden transition-colors duration-300 mb-16">
+        <div
+          class="flex-1 flex
+                flex-col
+                items-start
+                gap-8
+                md:gap-6
+                select-none
+                min-w-0"
+        >
+          <Title title="Experiencia " span="Profesional" />
+          <div class="space-y-12 border-l border-[var(--border)] ml-3 pl-8 relative">
+            {/* Experiencia Laboral */}
+            <div class="relative">
+              <span
+                class="absolute -left-[37px] top-1.5 w-3 h-3 rounded-full bg-[var(--accent)] ring-4 ring-[var(--bg)]"
+              ></span>
+              <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2">
+                <h3 class="text-lg font-bold text-[var(--hero-text)]">
+                  Analista de Sistemas / Full Stack
+                </h3>
+                <time class="text-sm font-medium text-[var(--muted)]">Abril 2014 — Actualidad</time>
+              </div>
+              <p class="text-sm font-medium text-[var(--accent)] mb-4">
+                GAD Municipal del cantón Naranjal
+              </p>
+              <ul
+                class="space-y-3 text-sm text-[var(--hero-desc)] list-disc list-outside ml-4 marker:text-[var(--border)]"
+              >
+                <li>
+                  Liderazgo técnico del departamento, coordinación de equipos y asesoría estratégica
+                  en decisiones tecnológicas.
+                </li>
+                <li>
+                  Desarrollo de Software: Sistema de Gestión Documental (DMS) con Node.js, React y
+                  PostgreSQL. Desarrollo de Cash Management para integración con Banco de Pichincha
+                  y sistemas de ligas municipales.
+                </li>
+                <li>
+                  Infraestructura: Implementación de VPNs, administración de entornos virtualizados
+                  en Proxmox y control de asistencia (BioTime).
+                </li>
+                <li>
+                  Seguridad e integraciones: Gestión de certificados SSL, integración de pagos con
+                  el BCE y optimización de bases de datos.
+                </li>
+              </ul>
+            </div>
+
+            {/* Formación Continua */}
+            <div class="relative">
+              <span
+                class="absolute -left-[37px] top-1.5 w-3 h-3 rounded-full bg-[var(--border)] ring-4 ring-[var(--bg)]"
+              ></span>
+              <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2">
+                <h3 class="text-lg font-bold text-[var(--hero-text)]">Formación Continua</h3>
+                <time class="text-sm font-medium text-[var(--muted)]">Actualidad</time>
+              </div>
+              <p class="text-sm font-medium text-[var(--accent)] mb-2">Cursos Online</p>
+              <p class="text-sm text-[var(--hero-desc)]">
+                React + TypeScript, JavaScript Moderno, Git + GitHub, CSS Grid + Flexbox, Bootstrap
+                5, Docker, Desarrollo Web Completo.
+              </p>
+            </div>
+
+            {/* Formación Universitaria */}
+            <div class="relative">
+              <span
+                class="absolute -left-[37px] top-1.5 w-3 h-3 rounded-full bg-[var(--border)] ring-4 ring-[var(--bg)]"
+              ></span>
+              <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2">
+                <h3 class="text-lg font-bold text-[var(--hero-text)]">
+                  Ingeniería en Sistemas Computacionales
+                </h3>
+                <time class="text-sm font-medium text-[var(--muted)]">Graduado</time>
+              </div>
+              <p class="text-sm font-medium text-[var(--accent)] mb-2">Universidad de Guayaquil</p>
+              <p class="text-sm text-[var(--hero-desc)]">Registro SENESCYT: 1006-2017-1872471.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="border-t
+          border-[var(--border)]
+          pt-12
+          text-center">
+        <h2 class="text-2xl font-bold text-[var(--hero-text)] mb-3">¿Quieres ver mi trabajo?</h2>
+
+        <p class="text-[var(--hero-desc)] mb-6">
+          Puedes explorar mis proyectos y repositorios públicos.
+        </p>
+
+        <a
+          href="https://github.com/Darkjasmany"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold
+            border-2 border-[var(--accent)] text-[var(--accent)]
+            hover:bg-[var(--accent)] hover:text-white
+            active:scale-95 transition-all"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+            ></path>
+          </svg>
+          Ver GitHub
+        </a>
+      </div>
     </div>
   </section>
 </Layout>
