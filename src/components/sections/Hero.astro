@@ -1,8 +1,8 @@
 ---
-import { socialData } from "../../data/socialData";
 import Card from "../ui/Card.astro";
 import Link from "../ui/Link.astro";
-import SocialIcon from "../ui/SocialIcon.astro";
+import DownloadIcon from "../ui/DownloadIcon.astro";
+import SocialGroup from "../ui/SocialGroup.astro";
 import TypeEffect from "../ui/TypeEffect";
 import Slider from "./Slider.astro";
 
@@ -11,83 +11,38 @@ const curriculumUrl = "https://drive.google.com/file/d/1VBkWbmi9Pjx7BVrrSfI872oB
 
 <header
   id="inicio"
-  class="w-full
-    2xl:min-h-screen
-    flex
-    overflow-x-hidden
-    transition-colors
-    duration-300"
+  class="w-full 2xl:min-h-screen flex overflow-x-hidden transition-colors duration-300"
 >
   <div
-    class="relative
-      z-10
-      w-full max-w-7xl mx-auto
-      px-4 sm:px-5 md:px-6 lg:px-10
-      pt-24 md:pt-26 lg:pt-28
-      pb-10 md:pb-16
-      flex flex-col lg:flex-row
-      items-center justify-center
-      gap-8 md:gap-10 lg:gap-20 xl:gap-24"
+    class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-10 pt-24 md:pt-26 lg:pt-28 pb-10 md:pb-16 flex flex-col lg:flex-row items-center justify-center gap-8 md:gap-10 lg:gap-20 xl:gap-24"
   >
     <!-- IZQUIERDA -->
-    <div
-      class="flex-1
-          w-full
-          flex
-          flex-col
-          items-start
-          gap-8
-          md:gap-6
-          select-none
-          min-w-0"
-    >
+    <div class="flex-1 w-full flex flex-col items-start gap-8 md:gap-6 select-none min-w-0">
       <!-- TÍTULO -->
       <div>
         <h1
-          class="font-semibold
-            tracking-tight
-            leading-none
-            text-[var(--hero-text)]
-            text-[clamp(2.4rem,7vw,5rem)]
-            md:text-[clamp(2.8rem,6vw,4.8rem)]"
+          class="font-semibold tracking-tight leading-none text-[var(--hero-text)] text-[clamp(2.4rem,7vw,5rem)] md:text-[clamp(2.8rem,6vw,4.8rem)]"
         >
           Jasmany Franco
         </h1>
 
         <!-- Rol animado con Typewriter-->
         <h2
-          class="mt-2
-            font-semibold
-            leading-tight
-            text-[var(--hero-text)]
-            text-[clamp(1.4rem,3vw,2.5rem)]
-            flex items-center gap-3"
+          class="mt-2 font-semibold leading-tight text-[var(--hero-text)] text-[clamp(1.4rem,3vw,2.5rem)] flex items-center gap-3"
         >
-          <span
-            class="w-1
-                  h-8
-                  rounded-full
-                  bg-[var(--accent)]
-                  opacity-70"
-          ></span>
+          <span class="w-1 h-8 rounded-full bg-[var(--accent)] opacity-70"></span>
           <TypeEffect client:visible />
         </h2>
       </div>
 
       <!-- DESCRIPCIÓN -->
-      <p
-        class="max-w-2xl
-                text-[var(--hero-desc)]
-                text-base md:text-lg
-                leading-7 md:leading-8
-                opacity-80"
-      >
-        Ingeniero en Sistemas con más de 10 años de experiencia en el sector público ecuatoriano.
-        Especializado en desarrollo web moderno con Node.js, TypeScript y React, construyendo
-        soluciones reales para problemas reales.
+      <p class="max-w-2xl text-[var(--hero-desc)] text-base md:text-lg leading-7 md:leading-8 opacity-80">
+        10+ años liderando transformación digital en el sector público ecuatoriano.
+        Especializado en desarrollo web moderno con Node.js, TypeScript y React,
+        construyendo soluciones escalables desde la infraestructura hasta el frontend.
       </p>
 
-      <!-- LINK FIXED -->
+      <!-- LINK ABOUT -->
       <Link href="/about" text="Ver más sobre mí" />
 
       <!-- CURRICULUM -->
@@ -96,47 +51,15 @@ const curriculumUrl = "https://drive.google.com/file/d/1VBkWbmi9Pjx7BVrrSfI872oB
         target="_blank"
         rel="noopener noreferrer"
         class="group inline-flex items-center gap-2 text-sm font-medium transition-colors duration-200 ease-out text-[var(--muted)] hover:text-[var(--accent)]"
-        ><!-- Ícono de descarga (SVG inline) -->
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="transition-transform duration-200 group-hover:-translate-y-0.5"
-        >
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-          <polyline points="7 10 12 15 17 10"></polyline>
-          <line x1="12" y1="15" x2="12" y2="3"></line>
-        </svg>
-        Curriculum</a
       >
+        <!-- Ícono de descarga -->
+        <DownloadIcon class="transition-transform duration-200 group-hover:-translate-y-0.5" />
+        Curriculum
+      </a>
 
       <!-- REDES SOCIALES -->
       <div class="flex gap-4 flex-wrap pt-2">
-        {
-          socialData.map(data =>
-            data.type === "email" ? (
-              <SocialIcon href={data.link} ariaLabel={data.name}>
-                <g
-                  class="stroke-current fill-none group-hover:stroke-[var(--accent)]"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <rect x="2" y="4" width="20" height="16" rx="2" />
-                  <path d="M22 7l-10 7L2 7" />
-                </g>
-              </SocialIcon>
-            ) : (
-              <SocialIcon href={data.link} ariaLabel={data.name} path={data.path} />
-            )
-          )
-        }
+        <SocialGroup />
       </div>
 
       <!-- SEPARADOR -->

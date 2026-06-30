@@ -1,101 +1,47 @@
 ---
 import ThemeToggle from "../ui/ThemeToggle";
+
+const navLinks = [
+  { href: "/#inicio", label: "Inicio" },
+  { href: "/#specialties", label: "Stack" },
+  { href: "/#projects", label: "Proyectos" },
+  { href: "/#contact", label: "Contacto" },
+  { href: "/about", label: "Sobre Mi" },
+];
 ---
 
 <header
   id="navbar"
-  class="fixed
-    top-0
-    left-0
-    right-0
-    z-500
-    h-17.5
-    flex
-    justify-center
-    items-center
-    bg-(--hero-bg)/30
-    backdrop-blur-md
-    border-b
-    border-transparent
-    transition-all
-    duration-300"
+  class="fixed top-0 left-0 right-0 z-500 h-17.5 flex justify-center items-center bg-(--hero-bg)/30 backdrop-blur-md border-b border-transparent transition-all duration-300"
 >
-  <div
-    class="w-full
-        max-w-7xl
-        mx-auto
-        px-6
-        flex
-        items-center
-        justify-between"
-  >
+  <div class="w-full max-w-7xl mx-auto px-6 flex items-center justify-between">
     <!-- Logo -->
     <a
       href="/"
-      class="text-3xl
-        font-black
-        tracking-tighter
-        text-(--hero-text)
-        transition-transform
-        hover:scale-105
-        select-none"
+      class="text-3xl font-black tracking-tighter text-(--hero-text) transition-transform hover:scale-105 select-none"
     >
       Jasmany<span class="text-[var(--accent)]">Dev</span>
     </a>
 
     <!-- Desktop nav + toggle -->
-    <div class="flex
-          items-center
-          gap-6">
+    <div class="flex items-center gap-6">
       <nav
-        class="hidden
-            lg:flex
-            items-center
-            gap-7"
+        class="hidden lg:flex items-center gap-7"
         aria-label="Navegación principal"
       >
-        <a
-          href="/#inicio"
-          class="text-[15px]
-            font-bold
-            text-(--hero-text)
-            opacity-70
-            hover:opacity-100
-            transition-opacity"
-        >
-          Inicio
-        </a>
-
-        <a
-          href="/#specialties"
-          class="text-[15px] font-bold text-(--hero-text) opacity-70 hover:opacity-100 transition-opacity"
-        >
-          Stack
-        </a>
-
-        <a
-          href="/#projects"
-          class="text-[15px] font-bold text-(--hero-text) opacity-70 hover:opacity-100 transition-opacity"
-        >
-          Proyectos
-        </a>
-
-        <a
-          href="/#contact"
-          class="text-[15px] font-bold text-(--hero-text) opacity-70 hover:opacity-100 transition-opacity"
-        >
-          Contacto
-        </a>
-        <a
-          href="/about"
-          class="text-[15px] font-bold text-(--hero-text) opacity-70 hover:opacity-100 transition-opacity"
-        >
-          Sobre Mi
-        </a>
+        {
+          navLinks.map(link => (
+            <a
+              href={link.href}
+              class="text-sm font-bold text-(--hero-text) opacity-70 hover:opacity-100 transition-opacity"
+            >
+              {link.label}
+            </a>
+          ))
+        }
       </nav>
 
       <!-- Toggle -->
-      <!-- <div class="flex items-center pl-4"> -->
       <div class="flex items-center">
         <ThemeToggle client:load />
       </div>
@@ -144,31 +90,16 @@ import ThemeToggle from "../ui/ThemeToggle";
     class="hidden absolute top-17.5 left-0 w-full bg-(--hero-bg) border-b border-(--border) px-6 py-5 shadow-lg lg:hidden cursor-pointer"
   >
     <nav class="flex flex-col gap-5">
-      <a
-        href="/"
-        class="mobile-link text-lg font-bold text-(--hero-text) opacity-80 hover:opacity-100 transition-opacity"
-        >Inicio</a
-      >
-      <a
-        href="/#specialties"
-        class="mobile-link text-lg font-bold text-(--hero-text) opacity-80 hover:opacity-100 transition-opacity"
-        >Stack</a
-      >
-      <a
-        href="/#projects"
-        class="mobile-link text-lg font-bold text-(--hero-text) opacity-80 hover:opacity-100 transition-opacity"
-        >Proyectos</a
-      >
-      <a
-        href="/#contact"
-        class="mobile-link text-lg font-bold text-(--hero-text) opacity-80 hover:opacity-100 transition-opacity"
-        >Contacto</a
-      >
-      <a
-        href="/about"
-        class="mobile-link text-lg font-bold text-(--hero-text) opacity-80 hover:opacity-100 transition-opacity"
-        >Sobre Mi</a
-      >
+      {
+        navLinks.map(link => (
+          <a
+            href={link.href}
+            class="mobile-link text-lg font-bold text-(--hero-text) opacity-80 hover:opacity-100 transition-opacity"
+          >
+            {link.label}
+          </a>
+        ))
+      }
     </nav>
   </div>
 
@@ -181,62 +112,4 @@ import ThemeToggle from "../ui/ThemeToggle";
   </div>
 </header>
 
-<script>
-  // 1. Selectores
-  const btn = document.getElementById("menu-btn") as HTMLButtonElement;
-  const menu = document.getElementById("mobile-menu") as HTMLElement;
-  const iconOpen = document.getElementById("icon-open") as HTMLElement;
-  const iconClose = document.getElementById("icon-close") as HTMLElement;
-  const navbar = document.getElementById("navbar") as HTMLElement;
-  const listItems = document.querySelectorAll<HTMLAnchorElement>("#navbar nav a");
-  const menuBackDrop = document.querySelector("#menu-backdrop") as HTMLElement;
-
-  // 2. Lógica del Menú Móvil
-  btn.addEventListener("click", () => {
-    const isOpen = menu.style.display === "flex";
-    menu.style.display = isOpen ? "none" : "flex";
-    menu.style.flexDirection = "column";
-    iconOpen.classList.toggle("hidden", !isOpen);
-    iconClose.classList.toggle("hidden", isOpen);
-  });
-
-  document.querySelectorAll(".mobile-link").forEach(link => {
-    link.addEventListener("click", () => {
-      menu.style.display = "none";
-      iconOpen.classList.remove("hidden");
-      iconClose.classList.add("hidden");
-    });
-  });
-
-  // 3. Lógica del Scroll
-  window.addEventListener("scroll", () => {
-    const isScrolled = window.scrollY > 20;
-    navbar.classList.toggle("bg-(--bg)/90", isScrolled);
-    navbar.classList.toggle("border-(--border)", isScrolled);
-    navbar.classList.toggle("shadow-sm", isScrolled);
-  });
-
-  // 4. Lógica del Backdrop (Hover dinámico)
-  listItems.forEach(item => {
-    item.addEventListener("mouseenter", () => {
-      const { left, top, width, height } = item.getBoundingClientRect();
-
-      // Corregimos la posición relativa al viewport si el header es fixed
-      // Actualizamos las variables CSS para posicionar el backdrop
-      menuBackDrop.style.setProperty("--left", `${left}px`);
-      menuBackDrop.style.setProperty("--top", `${top}px`);
-      menuBackDrop.style.setProperty("--width", `${width}px`);
-      menuBackDrop.style.setProperty("--height", `${height}px`);
-
-      // Hacemos visible el backdrop
-      menuBackDrop.style.opacity = "1";
-      menuBackDrop.style.visibility = "visible";
-    });
-
-    // Ocultamos el backdrop al salir del enlace
-    item.addEventListener("mouseleave", () => {
-      menuBackDrop.style.opacity = "0";
-      menuBackDrop.style.visibility = "hidden";
-    });
-  });
-</script>
+<script src="./nav-script.ts"></script>

@@ -1,4 +1,18 @@
-export const specialtiesData = [
+export interface Specialties {
+  category: string;
+  title: string;
+  icon: string;
+  description: string;
+  longDescription: string;
+}
+
+export interface Skill {
+  title: string;
+  description: string;
+  path: string;
+}
+
+export const specialtiesData: Specialties[] = [
   {
     category: "Desarrollo",
     title: "Full Stack",
@@ -33,7 +47,7 @@ export const specialtiesData = [
   },
 ];
 
-export const skills = [
+export const skills: Skill[] = [
   {
     title: "Liderazgo",
     description: "Coordinación de equipos técnicos y dirección de departamento.",

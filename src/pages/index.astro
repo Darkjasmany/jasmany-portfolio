@@ -1,15 +1,21 @@
 ---
-import Hero from "../components/sections/Hero.astro";
-// import ProjectsCarousel from "../components/sections/ProjectsCarousel";
 import Contact from "../components/sections/Contact.astro";
+import Hero from "../components/sections/Hero.astro";
+import Layout from "../layouts/Layout.astro";
+import Metrics from "../components/sections/Metrics.astro";
 import Projects from "../components/sections/Projects.astro";
 import Specialties from "../components/sections/Specialties.astro";
-import Layout from "../layouts/Layout.astro";
+import Testimonials from "../components/sections/Testimonials.astro";
+import WorkProcess from "../components/sections/WorkProcess.astro";
+// import ProjectsCarousel from "../components/sections/ProjectsCarousel";
 ---
 
 <Layout>
   <Hero />
+  <Metrics />
   <Specialties />
+  <WorkProcess />
   <Projects />
+  <Testimonials />
   <Contact />
 </Layout>

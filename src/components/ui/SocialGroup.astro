@@ -1,0 +1,27 @@
+---
+import { socialData, type SocialData } from "../../data/socialData";
+import SocialIcon from "./SocialIcon.astro";
+
+// Extraemos el mapeo de redes sociales para reutilizarlo en Hero y Contact
+// Cada red se renderiza igual: si es email, usa slot con SVG inline; si no, usa path.
+---
+
+{
+  socialData.map((data: SocialData) =>
+    data.type === "email" ? (
+      <SocialIcon href={data.link} ariaLabel={data.name}>
+        <g
+          class="stroke-current fill-none group-hover:stroke-[var(--accent)]"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect x="2" y="4" width="20" height="16" rx="2" />
+          <path d="M22 7l-10 7L2 7" />
+        </g>
+      </SocialIcon>
+    ) : (
+      <SocialIcon href={data.link} ariaLabel={data.name} path={data.path} />
+    )
+  )
+}

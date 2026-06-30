@@ -1,0 +1,54 @@
+---
+import Title from "../ui/Title.astro";
+
+interface Testimonial {
+  quote: string;
+  author: string;
+  role: string;
+}
+
+// Testimonios ficticios — reemplazar con personas reales cuando las tengas
+const testimonials: Testimonial[] = [
+  {
+    quote: "Jasmany demostró un profundo conocimiento técnico y una capacidad excepcional para traducir requerimientos complejos en soluciones funcionales. Su trabajo en el DMS transformó nuestra gestión documental.",
+    author: "Nombre del Jefe",
+    role: "Director de TI · GAD Naranjal",
+  },
+  {
+    quote: "Trabajar con Jasmany fue una experiencia enriquecedora. Su enfoque metódico y su habilidad para resolver problemas bajo presión marcaron la diferencia en nuestros proyectos más críticos.",
+    author: "Nombre del Colega",
+    role: "Arquitecto de Software · Proyecto X",
+  },
+];
+---
+
+<section id="testimonials" class="w-full overflow-hidden transition-colors duration-300">
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-10 pb-10 md:pb-16">
+    <div class="flex-1 flex flex-col items-start gap-8 md:gap-6 select-none min-w-0">
+      <Title title="Lo que dicen" span="de mí" />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 w-full">
+        {
+          testimonials.map(t => (
+            <div class="relative p-6 md:p-8 rounded-xl border border-[var(--border)] bg-[var(--card)] shadow-md">
+              <svg
+                class="w-8 h-8 text-[var(--accent)]/20 mb-4"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10H0z" />
+              </svg>
+              <blockquote class="text-sm md:text-base leading-relaxed text-[var(--hero-desc)] mb-6">
+                {t.quote}
+              </blockquote>
+              <footer>
+                <p class="text-sm font-bold text-[var(--hero-text)]">{t.author}</p>
+                <p class="text-xs text-[var(--muted)]">{t.role}</p>
+              </footer>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

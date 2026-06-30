@@ -1,4 +1,4 @@
-interface SocialData {
+export interface SocialData {
   name: string;
   link: string;
   path?: string;
