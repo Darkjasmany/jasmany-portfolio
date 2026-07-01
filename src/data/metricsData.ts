@@ -1,16 +1,32 @@
 import { projects } from "./projectsData";
 
-interface Metric {
+export interface Metric {
   value: number;
   suffix: string;
   label: string;
 }
 
-const projectsNumber = projects;
+const productionProjects = projects!.filter(project => project.production).length;
 
-export const metricData: Metric[] = [
-  { value: 10, suffix: "+", label: "Años de experiencia" },
-  { value: Number(projectsNumber.length), suffix: "+", label: "Proyectos entregados" },
-  { value: 8, suffix: "+", label: "Sistemas digitalizados" },
-  { value: 100, suffix: "%", label: "Compromiso y calidad" },
+export const metricsData: Metric[] = [
+  {
+    value: 10,
+    suffix: "+",
+    label: "Años de experiencia",
+  },
+  {
+    value: productionProjects,
+    suffix: "+",
+    label: "Sistemas en producción",
+  },
+  {
+    value: projects.length,
+    suffix: "+",
+    label: "Proyectos desarrollados",
+  },
+  {
+    value: 2023,
+    suffix: "",
+    label: "Desarrollando software profesional",
+  },
 ];

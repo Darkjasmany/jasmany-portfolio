@@ -10,7 +10,8 @@ export interface Project {
   youtubeUrl?: string;
   demoUrl?: string;
   githubUrl?: string;
-  featured?: boolean;
+  featured?: boolean; // visualizar en el modal
+  production?: boolean;
   category: "professional" | "learning";
 }
 
@@ -30,6 +31,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Darkjasmany/jasmany-portfolio",
     featured: true,
     category: "professional",
+    production: true,
   },
   {
     slug: "DMS",
@@ -55,6 +57,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Darkjasmany/SelNic",
     featured: true,
     category: "professional",
+    production: true,
   },
   {
     slug: "futbol-system",
@@ -78,6 +81,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Darkjasmany/futbol-system",
     featured: true,
     category: "professional",
+    production: true,
   },
   {
     slug: "cash-management",
@@ -94,6 +98,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Darkjasmany/cash-management",
     featured: true,
     category: "professional",
+    production: true,
   },
   {
     slug: "pokedex",
@@ -105,11 +110,16 @@ export const projects: Project[] = [
       "Proporciona una interfaz rápida y visual para explorar información de Pokémon consumiendo una API externa.",
     technologies: ["Astro", "TailwindCSS", "JavaScript", "API REST"],
     image: "/images/projects/pkd-1.png",
-    images: ["/images/projects/pkd-2.png", "/images/projects/pkd-3.png", "/images/projects/pkd-4.png"],
+    images: [
+      "/images/projects/pkd-2.png",
+      "/images/projects/pkd-3.png",
+      "/images/projects/pkd-4.png",
+    ],
     demoUrl: "https://fascinating-lokum-b3afb3.netlify.app/",
     githubUrl: "https://github.com/Darkjasmany/Pokedex-Nacional",
     featured: true,
     category: "learning",
+    production: false,
   },
   {
     slug: "app-clima",
@@ -125,5 +135,6 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Darkjasmany/APP-Clima",
     featured: false,
     category: "learning",
+    production: false,
   },
 ];

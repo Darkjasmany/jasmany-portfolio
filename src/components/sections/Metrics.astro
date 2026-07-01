@@ -1,16 +1,17 @@
 ---
-import { metricData } from "../../data/metricsData";
+import { metricsData } from "../../data/metricsData";
 ---
 
 <section class="w-full overflow-hidden transition-colors duration-300">
   <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-10 pb-10 md:pb-16">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8" id="metrics-container">
       {
-        metricData.map((m, index) => (
+        metricsData?.map((m, index) => (
           <div class="text-center select-none">
             <p class="text-[clamp(2rem,4vw,3rem)] font-black text-[var(--accent)] leading-none mb-2">
               <span id={`metric-${index}`} data-value={m.value} data-suffix={m.suffix}>
-                0{m.suffix}
+                {m.value}
+                {m.suffix}
               </span>
             </p>
             <p class="text-sm font-medium text-[var(--hero-desc)]">{m.label}</p>
