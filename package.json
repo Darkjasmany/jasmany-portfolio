@@ -22,8 +22,7 @@
     "countup.js": "^2.10.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
-    "tailwindcss": "^4.2.3",
-    "typewriter-effect": "^2.22.0"
+    "tailwindcss": "^4.2.3"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

@@ -3,6 +3,7 @@ import Footer from "../components/layout/Footer.astro";
 import Nav from "../components/layout/Nav.astro";
 import { config } from "../data/config";
 import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
   title?: string;
@@ -46,6 +47,7 @@ const imageUrl = site ? new URL(image, site).toString() : image;
 
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="canonical" href={url} />
+    <ClientRouter />
 
     <!-- Theme: inline script to prevent FOUC -->
     <script is:inline>
