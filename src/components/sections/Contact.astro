@@ -1,9 +1,8 @@
 ---
+import { config } from "../../data/config";
 import Title from "../ui/Title.astro";
 import DownloadIcon from "../ui/DownloadIcon.astro";
 import SocialGroup from "../ui/SocialGroup.astro";
-
-const curriculumUrl = "https://drive.google.com/file/d/1VBkWbmi9Pjx7BVrrSfI872oBf-D52YQD/view";
 ---
 
 <section
@@ -30,7 +29,7 @@ const curriculumUrl = "https://drive.google.com/file/d/1VBkWbmi9Pjx7BVrrSfI872oB
     <div class="flex flex-wrap justify-center gap-4">
       <!-- Descargar CV -->
       <a
-        href={curriculumUrl}
+        href={config.curriculumUrl}
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-base font-semibold bg-[var(--accent)] text-white hover:brightness-110 hover:shadow-lg hover:shadow-[var(--accent)]/25 active:scale-95 transition-all"
@@ -41,7 +40,7 @@ const curriculumUrl = "https://drive.google.com/file/d/1VBkWbmi9Pjx7BVrrSfI872oB
 
       <!-- Enviar Email -->
       <a
-        href="mailto:jasmanyfranco@gmail.com"
+        href={`mailto:${config.email}`}
         class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-base font-semibold border-2 border-[var(--accent)] text-[var(--accent)] hover:bg-[var(--accent)] hover:text-white active:scale-95 transition-all"
       >
         <svg

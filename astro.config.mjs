@@ -1,15 +1,20 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
-import react from '@astrojs/react';
+import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
 
-import tailwindcss from '@tailwindcss/vite';
+import tailwindcss from "@tailwindcss/vite";
+
+// Cambia esta URL por tu dominio real antes de desplegar
+const site = "https://jasmany.dev";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react()],
+  site,
+  integrations: [react(), sitemap()],
 
   vite: {
-    plugins: [tailwindcss()]
-  }
+    plugins: [tailwindcss()],
+  },
 });

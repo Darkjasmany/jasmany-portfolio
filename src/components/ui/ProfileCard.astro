@@ -1,0 +1,133 @@
+---
+import { Image } from "astro:assets";
+import jasmaImage from "../../assets/images/JasmanyF.png";
+import { metricsData } from "../../data/metricsData";
+
+const heroMetrics = metricsData.slice(0, 3);
+---
+
+<div class="profile-card">
+  <div class="photo-wrapper">
+    <Image
+      src={jasmaImage}
+      alt="Jasmany Franco"
+      width={400}
+      height={400}
+      class="photo"
+    />
+  </div>
+
+  <div class="metrics">
+    {
+      heroMetrics.map((m) => (
+        <div class="metric-item">
+          <span class="metric-value">{m.value}{m.suffix}</span>
+          <span class="metric-label">{m.label}</span>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .profile-card {
+    width: 340px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(58, 123, 213, 0.12);
+    box-shadow:
+      0 12px 48px rgba(0, 0, 0, 0.10),
+      0 4px 16px rgba(0, 0, 0, 0.06);
+    animation: cardEnter 0.6s ease-out both;
+  }
+
+  [data-theme="dark"] .profile-card {
+    background: rgba(30, 41, 59, 0.5);
+    border-color: rgba(96, 165, 250, 0.12);
+    box-shadow:
+      0 12px 48px rgba(0, 0, 0, 0.4),
+      0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .photo-wrapper {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+  }
+
+  .photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+
+  .metrics {
+    display: flex;
+    align-items: stretch;
+    border-top: 1px solid rgba(58, 123, 213, 0.08);
+  }
+
+  [data-theme="dark"] .metrics {
+    border-top-color: rgba(96, 165, 250, 0.08);
+  }
+
+  .metric-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 4px;
+    gap: 2px;
+  }
+
+  .metric-item + .metric-item {
+    border-left: 1px solid rgba(58, 123, 213, 0.08);
+  }
+
+  [data-theme="dark"] .metric-item + .metric-item {
+    border-left-color: rgba(96, 165, 250, 0.08);
+  }
+
+  .metric-value {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #3a7bd5;
+    line-height: 1;
+    font-family: "Outfit", system-ui, sans-serif;
+  }
+
+  [data-theme="dark"] .metric-value {
+    color: #60a5fa;
+  }
+
+  .metric-label {
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    line-height: 1.2;
+    font-family: "Outfit", system-ui, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  [data-theme="dark"] .metric-label {
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  @keyframes cardEnter {
+    from {
+      opacity: 0;
+      transform: scale(0.95) translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+</style>

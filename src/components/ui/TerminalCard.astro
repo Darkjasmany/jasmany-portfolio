@@ -1,0 +1,205 @@
+---
+// TerminalCard.astro
+// Editor/CLI card con estructura tipo VS Code. CSS-only.
+---
+
+<div class="flex items-center justify-center">
+  <div class="terminal-card">
+    <div class="terminal-bar">
+      <div class="flex items-center gap-1.5">
+        <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="tab-active">profile.sh</span>
+      </div>
+      <div class="w-[52px]"></div>
+    </div>
+
+    <div class="terminal-body">
+      <div class="path-line">~/profile</div>
+
+      <div class="line" style="--delay: 0.6s">
+        <span class="prompt">$</span>
+        <span class="cmd">whoami</span>
+      </div>
+      <div class="line out" style="--delay: 1.2s">Jasmany Franco</div>
+
+      <div class="line" style="--delay: 1.8s">
+        <span class="prompt">$</span>
+        <span class="cmd">role</span>
+      </div>
+      <div class="line out" style="--delay: 2.4s">Full Stack Developer</div>
+
+      <div class="line" style="--delay: 3.0s">
+        <span class="prompt">$</span>
+        <span class="cmd">tools --list</span>
+      </div>
+      <div class="line out" style="--delay: 3.8s">▸ Node.js</div>
+      <div class="line out" style="--delay: 4.1s">▸ React</div>
+      <div class="line out" style="--delay: 4.4s">▸ TypeScript</div>
+      <div class="line out" style="--delay: 4.7s">▸ PostgreSQL</div>
+      <div class="line out" style="--delay: 5.0s">▸ Linux</div>
+      <div class="line out" style="--delay: 5.3s">▸ AWS</div>
+      <div class="line out" style="--delay: 5.6s">▸ Clean Architecture</div>
+
+      <div class="line" style="--delay: 6.2s">
+        <span class="prompt">$</span>
+        <span class="cursor">█</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .terminal-card {
+    width: 380px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: rgba(30, 30, 46, 0.92);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 12px 48px rgba(0, 0, 0, 0.25),
+      0 4px 16px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    animation: cardEnter 0.6s ease-out both;
+  }
+
+  [data-theme="dark"] .terminal-card {
+    background: rgba(40, 44, 64, 0.92);
+    border-color: rgba(96, 165, 250, 0.15);
+    box-shadow:
+      0 12px 48px rgba(0, 0, 0, 0.5),
+      0 4px 16px rgba(0, 0, 0, 0.25),
+      0 0 40px rgba(96, 165, 250, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .terminal-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    background: rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    user-select: none;
+  }
+
+  .tab-active {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.75);
+    font-family: "Outfit", system-ui, sans-serif;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 3px 12px;
+    border-radius: 4px;
+    letter-spacing: 0.01em;
+  }
+
+  .terminal-body {
+    padding: 20px 24px 24px;
+    font-family: ui-monospace, SFMono-Regular, "Cascadia Code", "Consolas", monospace;
+    font-size: 0.875rem;
+    line-height: 1.75;
+  }
+
+  .path-line {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.25);
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-family: "Outfit", system-ui, sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .line {
+    opacity: 0;
+    animation: fadeLine 0.3s ease-out both;
+    animation-delay: var(--delay);
+  }
+
+  .out {
+    padding-left: 1.6em;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .prompt {
+    color: #60a5fa;
+    margin-right: 0.6em;
+    font-weight: 700;
+  }
+
+  .cmd {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    clip-path: inset(0 100% 0 0);
+    animation: type 0.4s ease-out forwards;
+    animation-delay: var(--delay);
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .cursor {
+    color: #60a5fa;
+    animation: blink 1s step-end infinite;
+    font-weight: 300;
+  }
+
+  @keyframes cardEnter {
+    from {
+      opacity: 0;
+      transform: scale(0.95) translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  @keyframes fadeLine {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes type {
+    from {
+      clip-path: inset(0 100% 0 0);
+    }
+    to {
+      clip-path: inset(0 0% 0 0);
+    }
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .terminal-card {
+      animation: none;
+    }
+    .line {
+      animation: none;
+      opacity: 1;
+    }
+    .cmd {
+      clip-path: none;
+      animation: none;
+    }
+    .cursor {
+      animation: none;
+    }
+  }
+</style>

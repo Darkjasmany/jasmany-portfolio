@@ -1,0 +1,76 @@
+---
+import { Image } from "astro:assets";
+import jasmaImage from "../../assets/images/JasmanyF.png";
+---
+
+<div class="about-photo">
+  <div class="photo-bg"></div>
+  <div class="photo-frame">
+    <Image
+      src={jasmaImage}
+      alt="Jasmany Franco"
+      width={480}
+      height={480}
+      class="photo"
+    />
+  </div>
+</div>
+
+<style>
+  .about-photo {
+    position: relative;
+    width: 340px;
+    height: 420px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .photo-bg {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    height: 85%;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(58, 123, 213, 0.12), rgba(58, 123, 213, 0.04));
+    border: 1px solid rgba(58, 123, 213, 0.10);
+  }
+
+  [data-theme="dark"] .photo-bg {
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.10), rgba(96, 165, 250, 0.03));
+    border-color: rgba(96, 165, 250, 0.08);
+  }
+
+  .photo-frame {
+    position: relative;
+    z-index: 1;
+    width: 300px;
+    height: 360px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.12),
+      0 4px 12px rgba(0, 0, 0, 0.06);
+    transform: translateY(-10px) rotate(-1.5deg);
+    transition: transform 0.4s ease;
+  }
+
+  [data-theme="dark"] .photo-frame {
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.35),
+      0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .about-photo:hover .photo-frame {
+    transform: translateY(-12px) rotate(0deg);
+  }
+
+  .photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+</style>

@@ -1,12 +1,11 @@
 ---
+import { config } from "../../data/config";
 import Card from "../ui/Card.astro";
 import Link from "../ui/Link.astro";
 import DownloadIcon from "../ui/DownloadIcon.astro";
 import SocialGroup from "../ui/SocialGroup.astro";
 import TypeEffect from "../ui/TypeEffect";
 import Slider from "./Slider.astro";
-
-const curriculumUrl = "https://drive.google.com/file/d/1VBkWbmi9Pjx7BVrrSfI872oBf-D52YQD/view";
 ---
 
 <header
@@ -47,7 +46,7 @@ const curriculumUrl = "https://drive.google.com/file/d/1VBkWbmi9Pjx7BVrrSfI872oB
 
       <!-- CURRICULUM -->
       <a
-        href={curriculumUrl}
+        href={config.curriculumUrl}
         target="_blank"
         rel="noopener noreferrer"
         class="group inline-flex items-center gap-2 text-sm font-medium transition-colors duration-200 ease-out text-[var(--muted)] hover:text-[var(--accent)]"
@@ -79,7 +78,7 @@ const curriculumUrl = "https://drive.google.com/file/d/1VBkWbmi9Pjx7BVrrSfI872oB
     </div>
 
     <!-- DERECHA -->
-    <div class="hidden lg:block">
+    <div class="hidden lg:block shrink-0">
       <Card />
     </div>
   </div>
