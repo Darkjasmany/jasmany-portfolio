@@ -1,8 +1,7 @@
 ---
-import Title from "../ui/Title.astro";
-import SkillCard from "../ui/SkillCard.astro";
-import { skills } from "../../data/specialtiesData";
 import { stackData } from "../../data/stackData";
+import SkillCard from "../ui/SkillCard.astro";
+import Title from "../ui/Title.astro";
 
 const categories = ["frontend", "backend_db", "devops"];
 
@@ -26,9 +25,7 @@ const categoryMeta: Record<string, { title: string; icon: string }> = {
                 .map(t => t.displayName || t.name.charAt(0).toUpperCase() + t.name.slice(1))
                 .join(", ") + ".";
             const meta = categoryMeta[cat];
-            return (
-              <SkillCard title={meta.title} description={techNameString} icon={meta.icon} />
-            );
+            return <SkillCard title={meta.title} description={techNameString} icon={meta.icon} />;
           })
         }
       </div>

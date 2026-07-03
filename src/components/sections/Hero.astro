@@ -1,8 +1,8 @@
 ---
 import { config } from "../../data/config";
 import Card from "../ui/Card.astro";
-import Link from "../ui/Link.astro";
 import DownloadIcon from "../ui/DownloadIcon.astro";
+import Link from "../ui/Link.astro";
 import SocialGroup from "../ui/SocialGroup.astro";
 import TypeEffect from "../ui/TypeEffect";
 import Slider from "./Slider.astro";
@@ -30,15 +30,17 @@ import Slider from "./Slider.astro";
           class="mt-2 font-semibold leading-tight text-[var(--hero-text)] text-[clamp(1.4rem,3vw,2.5rem)] flex items-center gap-3"
         >
           <span class="w-1 h-8 rounded-full bg-[var(--accent)] opacity-70"></span>
-          <TypeEffect client:load />
+          <TypeEffect client:visible />
         </h2>
       </div>
 
       <!-- DESCRIPCIÓN -->
-      <p class="max-w-2xl text-[var(--hero-desc)] text-base md:text-lg leading-7 md:leading-8 opacity-80">
-        10+ años liderando transformación digital en el sector público ecuatoriano.
-        Especializado en desarrollo web moderno con Node.js, TypeScript y React,
-        construyendo soluciones escalables desde la infraestructura hasta el frontend.
+      <p
+        class="max-w-2xl text-[var(--hero-desc)] text-base md:text-lg leading-7 md:leading-8 opacity-80"
+      >
+        10+ años liderando transformación digital en el sector público ecuatoriano. Especializado en
+        desarrollo web moderno con Node.js, TypeScript y React, construyendo soluciones escalables
+        desde la infraestructura hasta el frontend.
       </p>
 
       <!-- LINK ABOUT -->
@@ -69,8 +71,6 @@ import Slider from "./Slider.astro";
         <p class="text-xs uppercase tracking-[0.25em] font-semibold text-[var(--accent)] mb-3">
           Stack Tecnológico
         </p>
-        <!-- <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)] mb-4">Stack Tecnológico</p> -->
-
         <div class="w-full max-w-full">
           <Slider />
         </div>

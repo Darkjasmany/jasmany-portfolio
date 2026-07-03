@@ -1,10 +1,10 @@
 ---
-import Layout from "../layouts/Layout.astro";
 import AboutBio from "../components/sections/AboutBio.astro";
 import AboutCTA from "../components/sections/AboutCTA.astro";
 import AboutSkills from "../components/sections/AboutSkills.astro";
 import AboutTimeline from "../components/sections/AboutTimeline.astro";
 import WorkProcess from "../components/sections/WorkProcess.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
@@ -12,10 +12,8 @@ import WorkProcess from "../components/sections/WorkProcess.astro";
   description="Conoce más sobre Jasmany Franco, Ingeniero en Sistemas y Full Stack Developer."
 >
   <AboutBio />
-  <hr class="border-[var(--border)]" />
   <AboutSkills />
   <WorkProcess />
-  <hr class="border-[var(--border)]" />
   <AboutTimeline />
   <AboutCTA />
 </Layout>
