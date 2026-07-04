@@ -1,61 +1,55 @@
-// Scrip para el efecto "odometer effect" o contador numérico animado (Metrics.astro)
-
 import { CountUp } from "countup.js";
 
-const container = document.getElementById("metrics-container");
-const counters = document.querySelectorAll('[id^="metric-"]');
-// let hasAnimated = false; // Para que la animación se ejecute una solo vez cuando aparece
+/**
+ * Inicializa los contadores animados de la sección Metrics.
+ * Se ejecuta en cada navegación (incluyendo la inicial) gracias a `astro:page-load`.
+ * Esto asegura que la animación CountUp funcione incluso al volver al Home
+ * mediante View Transitions sin necesidad de recargar la página.
+ */
+function initMetrics() {
+  const container = document.getElementById("metrics-container");
+  if (!container) return;
 
-// Creamos y guardamos las instancias de CountUp para reutilizarlas
-const countUpInstances = Array.from(counters).map(counter => {
-  const target = counter as HTMLElement;
-  const endValue = Number(target.dataset.value);
-  const suffix = target.dataset.suffix || "";
+  // Selecciona todos los spans con id="metric-{index}"
+  const counters = document.querySelectorAll<HTMLElement>('[id^="metric-"]');
 
-  return new CountUp(target.id, endValue, {
-    duration: 2.5, // Duración de la animación en segundos
-    suffix: suffix, // Añade el "+" o "%" al final del conteo
-    useEasing: true, // Efecto de desaceleración al llegar al final
-    useGrouping: false, // Indica a la librería que no agrupe los números de tres en tres (, en miles)
-  });
-});
+  // Creamos y guardamos las instancias de CountUp para cada contador
+  const countUpInstances = Array.from(counters).map(counter => {
+    const endValue = Number(counter.dataset.value);
+    const suffix = counter.dataset.suffix || "";
 
-// Configuramos el observador para disparar la animación al hacer scroll
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      // Si la sección entra en la pantalla esta visible
-      if (entry.isIntersecting) {
-        // if (entry.isIntersecting && !hasAnimated) {
-        // hasAnimated = true;
-
-        countUpInstances.forEach(instance => {
-          if (!instance.error) {
-            instance.start();
-          } else {
-            console.error(instance.error);
-          }
-        });
-      } else {
-        // Salió de la pantalla: Reseteamos los valores a 0
-        // Esto permite que la animación pueda volver a ejecutarse al bajar/subir
-        countUpInstances.forEach(instance => {
-          instance.reset();
-        });
-      }
+    return new CountUp(counter.id, endValue, {
+      duration: 2.5, // Duración de la animación en segundos
+      suffix: suffix, // Añade el "+" o "%" al final del número
+      useEasing: true, // Efecto de desaceleración al llegar al final
+      useGrouping: false, // No agrupa los números con comas (ej. 1500 no 1,500)
     });
-  },
-  { threshold: 0.5 } // 0.5 = 50% que se activa cuando la mitad de la sección es visible
-);
+  });
 
-if (container) {
+  // Configuramos el observador para disparar la animación al hacer scroll
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        // Si la sección entra en la pantalla (visible al 50% según threshold)
+        if (entry.isIntersecting) {
+          countUpInstances.forEach(instance => {
+            if (!instance.error) {
+              instance.start();
+            }
+          });
+        } else {
+          // Salió de la pantalla: reseteamos los valores a 0
+          // Esto permite que la animación pueda volver a ejecutarse al scrollear de nuevo
+          countUpInstances.forEach(instance => {
+            instance.reset();
+          });
+        }
+      });
+    },
+    { threshold: 0.5 } // Se activa cuando el 50% de la sección es visible
+  );
+
   observer.observe(container);
 }
 
-/* La propiedad .isIntersecting es un valor booleano (true/false) que forma parte de la API IntersectionObserver en JavaScript.  Indica si un elemento observado está actualmente intersectando (superponiéndose) con su elemento raíz o el viewport.
-
-  Funcionamiento Principal
-  true: Significa que el elemento objetivo ha entrado en el área de observación (se ha vuelto visible, total o parcialmente, según el umbral definido). Indica una transición de "no visible" a "visible".
-  
-  false: Significa que el elemento ha dejado de intersectar con el área de observación (se ha vuelto invisible). Indica una transición de "visible" a "no visible".
-  Se utiliza dentro de la función callback del observador para ejecutar código específicamente cuando un elemento aparece o desaparece de la vista.*/
+document.addEventListener("astro:page-load", initMetrics);
