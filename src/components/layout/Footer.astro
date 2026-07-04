@@ -1,13 +1,89 @@
 ---
+import { config } from "../../data/config";
+import { navLinks } from "../../data/navigationData";
+import SocialIcon from "../ui/SocialIcon.astro";
+import { socialData } from "../../data/socialData";
+
 const year = new Date().getFullYear();
 ---
 
-<footer class="bg-[var(--hero-bg)] border-t transition-colors duration-300">
-  <div class="max-w-7xl mx-auto px-6 md:px-12 py-6 flex flex-col sm:flex-row items-center justify-center gap-4">
-    <p class="text-xs text-[var(--muted)]">
-      © {year}
-      <a href="#inicio" class="text-[var(--accent)] hover:underline">Jasmany Franco</a>
-      · Naranjal, Ecuador
-    </p>
+<footer class="border-t border-[var(--border)] bg-[var(--bg2)] transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-6 md:px-12 py-10 md:py-14">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12">
+
+      <!-- Col 1 — Marca -->
+      <div class="flex flex-col gap-3">
+        <a href="/" class="text-2xl font-black tracking-tighter text-[var(--hero-text)]">
+          Jasmany<span class="text-[var(--accent)]">Dev</span>
+        </a>
+        <p class="text-sm text-[var(--muted)] leading-relaxed max-w-xs">
+          Full Stack Developer · Ingeniero en Sistemas
+        </p>
+        <p class="text-xs text-[var(--muted2)]">
+          Naranjal, Ecuador
+        </p>
+      </div>
+
+      <!-- Col 2 — Navegación -->
+      <div class="flex flex-col gap-3">
+        <p class="text-xs uppercase tracking-[0.2em] font-semibold text-[var(--accent)]">
+          Navegación
+        </p>
+        <nav class="flex flex-col gap-2.5">
+          {
+            navLinks.map(link => (
+              <a
+                href={link.href}
+                class="text-sm text-[var(--muted)] hover:text-[var(--accent)] transition-colors w-fit"
+              >
+                {link.label}
+              </a>
+            ))
+          }
+        </nav>
+      </div>
+
+      <!-- Col 3 — Contacto + Redes -->
+      <div class="flex flex-col gap-3">
+        <p class="text-xs uppercase tracking-[0.2em] font-semibold text-[var(--accent)]">
+          Contacto
+        </p>
+        <a
+          href={`mailto:${config.email}`}
+          class="text-sm text-[var(--muted)] hover:text-[var(--accent)] transition-colors w-fit"
+        >
+          {config.email}
+        </a>
+        <a
+          href={config.curriculumUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 text-sm text-[var(--muted)] hover:text-[var(--accent)] transition-colors w-fit"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Curriculum
+        </a>
+        <div class="flex gap-3 mt-1">
+          {
+            socialData
+              .filter(s => s.type !== "email")
+              .map(s => (
+                <SocialIcon href={s.link} ariaLabel={s.name} path={s.path} />
+              ))
+          }
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Barra inferior -->
+    <div class="mt-10 pt-6 border-t border-[var(--border)] flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+      <p class="text-xs text-[var(--muted2)]">
+        © {year} Jasmany Franco
+      </p>
+      <p class="text-xs text-[var(--muted2)]">
+        Hecho con Astro · Ecuador
+      </p>
+    </div>
   </div>
 </footer>
