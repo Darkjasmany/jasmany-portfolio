@@ -21,13 +21,12 @@ function initNav() {
   // Si no encuentra los elementos, salimos sin errores (puede ocurrir si el DOM cambió)
   if (!btn || !menu || !iconOpen || !iconClose) return;
 
-  // ── 1. Toggle menú móvil ──
+  // ── 1. Toggle menú móvil con animación ──
   const toggleMenu = () => {
-    const isOpen = menu.style.display === "flex";
-    menu.style.display = isOpen ? "none" : "flex";
-    menu.style.flexDirection = "column";
-    iconOpen.classList.toggle("hidden", !isOpen);
-    iconClose.classList.toggle("hidden", isOpen);
+    const isOpen = menu.classList.contains("open");
+    menu.classList.toggle("open");
+    iconOpen.classList.toggle("hidden", isOpen);
+    iconClose.classList.toggle("hidden", !isOpen);
   };
 
   btn.addEventListener("click", toggleMenu);
@@ -35,7 +34,7 @@ function initNav() {
   // ── 2. Cerrar menú al hacer clic en un link ──
   document.querySelectorAll<HTMLAnchorElement>(".mobile-link").forEach(link => {
     link.addEventListener("click", () => {
-      menu.style.display = "none";
+      menu.classList.remove("open");
       iconOpen.classList.remove("hidden");
       iconClose.classList.add("hidden");
     });
