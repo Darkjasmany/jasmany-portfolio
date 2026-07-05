@@ -25,7 +25,7 @@ export const projects: Project[] = [
       "Portafolio personal diseñado como carta de presentación digital profesional. Construido con Astro 7 y React 19, utiliza TailwindCSS v4 para el sistema de diseño con modo oscuro/claro completo. La arquitectura sigue el patrón de Astro Islands, combinando componentes estáticos (.astro) con islas interactivas (React) para un rendimiento óptimo. Incluye un carrusel de proyectos con gestos táctiles, galería con filtros por tecnología, modal con presentación tipo slide, efecto typewriter en el hero, slider infinito de tecnologías, y una página about detallada con línea de tiempo profesional. Cada componente se comunica mediante props tipadas con TypeScript estricto. Las imágenes se optimizan con lazy loading y el fondo usa variables CSS personalizadas para transiciones suaves entre temas.",
     problemSolved:
       "Proporciona una presencia profesional en línea que centraliza perfil, proyectos, habilidades y experiencia en un solo lugar. El diseño modular permite escalar el contenido sin reestructurar la app, y el sistema de temas garantiza accesibilidad visual en cualquier entorno.",
-    technologies: ["Astro", "React", "TypeScript", "TailwindCSS", "Nodejs"],
+    technologies: ["Astro", "React", "TypeScript", "TailwindCSS"],
     image: "/images/projects/portfolio-1.png",
     images: [
       "/images/projects/portfolio-2.png",
