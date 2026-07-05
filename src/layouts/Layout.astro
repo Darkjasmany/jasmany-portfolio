@@ -1,7 +1,6 @@
 ---
 import Footer from "../components/layout/Footer.astro";
 import Nav from "../components/layout/Nav.astro";
-import { config } from "../data/config";
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
 
@@ -51,8 +50,8 @@ const imageUrl = site ? new URL(image, site).toString() : image;
 
     <!-- Theme: inline script to prevent FOUC -->
     <script is:inline>
-      (function() {
-        var theme = localStorage.getItem("theme");
+      (function () {
+        let theme = localStorage.getItem("theme");
         if (!theme) {
           theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
         }
@@ -61,25 +60,26 @@ const imageUrl = site ? new URL(image, site).toString() : image;
     </script>
 
     <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-      {
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Person",
-        "name": "Jasmany Franco",
-        "givenName": "Jasmany",
-        "familyName": "Franco",
-        "jobTitle": "Full Stack Developer",
-        "description": "Ingeniero en Sistemas y Full Stack Developer con 10+ años de experiencia.",
-        "url": {JSON.stringify(url)},
-        "image": {JSON.stringify(imageUrl)},
-        "email": {JSON.stringify(config.email)},
-        "sameAs": [
+        name: "Jasmany Franco",
+        givenName: "Jasmany",
+        familyName: "Franco",
+        jobTitle: "Full Stack Developer",
+        description: "Ingeniero en Sistemas y Full Stack Developer con 10+ años de experiencia.",
+        url: url,
+        image: imageUrl,
+        email: "tu-correo@ejemplo.com", // O asegúrate de importar 'config' arriba
+        sameAs: [
           "https://github.com/Darkjasmany",
           "https://www.linkedin.com/in/jasmany-developer/",
-          "https://twitter.com/darkjasmany"
-        ]
-      }
-    </script>
+          "https://twitter.com/darkjasmany",
+        ],
+      })}
+    />
   </head>
   <body>
     <Nav />
