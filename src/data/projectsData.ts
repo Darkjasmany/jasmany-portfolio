@@ -51,7 +51,17 @@ export const projects: Project[] = [
       "Plataforma full-stack desarrollada con TypeScript para el manejo de ingresos, egresos y reporting financiero en tiempo real. Incluye autenticación de usuarios, registro de transacciones, y generación de reportes.",
     problemSolved:
       "Generación centralizada para la obtención de deudas de los contribuyente, inluyendo valores nominales, intereses exactos calculados de manera individual en archivos en texto plano y excel.",
-    technologies: ["TypeScript", "React", "Nodejs", "Express", "Prisma", "PostgreSQL"],
+    technologies: [
+      "TypeScript",
+      "React",
+      "Node.js",
+      "Express",
+      "Prisma",
+      "PostgreSQL",
+      "JWT",
+      "Zustand",
+      "REST API",
+    ],
     image: "/images/projects/cash-1.png",
     images: [
       "/images/projects/cash-2.png",
@@ -76,7 +86,18 @@ export const projects: Project[] = [
       "Este proyecto es un sistema de gestión documental desarrollado con Node.js para el backend y React con TailwindCSS para el frontend. El sistema permite a los usuarios gestionar documentos de manera eficiente, eliminando procesos manuales en papel y reduciendo tiempos de respuesta. Además, cuenta con funcionalidades como control de acceso, seguimiento de documentos y generación de reportes.",
     problemSolved:
       "Eliminó procesos manuales en papel, reduciendo tiempos de respuesta, y permitió una gestión eficiente de documentos, mejorando el control y busqueda de información.",
-    technologies: ["React", "Nodejs", "Express", "Sequelize", "TailwindCSS", "PostgreSQL"],
+    technologies: [
+      "React",
+      "Node.js",
+      "Express",
+      "Sequelize",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "JWT",
+      "Docker",
+      "Multer",
+      "REST API",
+    ],
     image: "/images/projects/dms-1.png",
     images: [
       "/images/projects/dms-2.png",
@@ -104,11 +125,12 @@ export const projects: Project[] = [
     technologies: [
       "TypeScript",
       "React",
-      "Nodejs",
+      "Node.js",
       "Express",
       "Prisma",
       "PostgreSQL",
-      "Reconocimiento Facial",
+      "face-api.js",
+      "REST API",
     ],
     image: "/images/projects/futbol-1.png",
     images: [
@@ -144,7 +166,7 @@ export const projects: Project[] = [
       "Aplicación desarrollada con fines de aprendizaje construida con Astro que consume la PokéAPI para mostrar los 151 Pokémon originales. Incluye filtrado por tipo, búsqueda en tiempo real y diseño responsive.",
     problemSolved:
       "Proporciona una interfaz rápida y visual para explorar información de Pokémon consumiendo una API externa.",
-    technologies: ["Astro", "TailwindCSS", "JavaScript", "API REST"],
+    technologies: ["Astro", "Tailwind CSS", "JavaScript", "REST API"],
     image: "/images/projects/pkd-1.png",
     images: [
       "/images/projects/pkd-2.png",
@@ -165,7 +187,7 @@ export const projects: Project[] = [
       "Aplicación desarrollada con fines de aprendizaje para interactuar con APIs meteorológicas, permitiendo consultar el estado del tiempo, pronósticos y condiciones climáticas de diferentes ubicaciones de manera rápida y eficiente.",
     problemSolved:
       "Facilita el acceso a información climática actualizada mediante una interfaz sencilla, ideal para la práctica de consumo de APIs externas.",
-    technologies: ["Astro", "JavaScript", "API Integration", "Web Development"],
+    technologies: ["Astro", "JavaScript", "REST API"],
     image: "/images/projects/clima-1.png",
     images: [],
     demoUrl: "https://astounding-cheesecake-32c8b9.netlify.app/",
