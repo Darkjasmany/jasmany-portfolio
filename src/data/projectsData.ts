@@ -18,7 +18,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: "portfolio",
-    title: "jasmany-portfolio",
+    title: "Jasmany Portfolio",
     description:
       "Portafolio profesional con modo oscuro/claro, carrusel de proyectos interactivo y diseño responsivo.",
     longDescription:
@@ -38,6 +38,31 @@ export const projects: Project[] = [
       "/images/projects/portfolio-9.png",
     ],
     githubUrl: "https://github.com/Darkjasmany/jasmany-portfolio",
+    featured: true,
+    category: "professional",
+    production: true,
+  },
+  {
+    slug: "cash-management",
+    title: "Cash Management",
+    description:
+      "Aplicación web para la gestión y control de carga de información a la plataforma del Banco de Pichincha.",
+    longDescription:
+      "Plataforma full-stack desarrollada con TypeScript para el manejo de ingresos, egresos y reporting financiero en tiempo real. Incluye autenticación de usuarios, registro de transacciones, y generación de reportes.",
+    problemSolved:
+      "Generación centralizada para la obtención de deudas de los contribuyente, inluyendo valores nominales, intereses exactos calculados de manera individual en archivos en texto plano y excel.",
+    technologies: ["TypeScript", "React", "Nodejs", "Express", "Prisma", "PostgreSQL"],
+    image: "/images/projects/cash-1.png",
+    images: [
+      "/images/projects/cash-2.png",
+      "/images/projects/cash-3.png",
+      "/images/projects/cash-4.png",
+      "/images/projects/cash-5.png",
+      "/images/projects/cash-6.png",
+      "/images/projects/cash-7.png",
+      "/images/projects/cash-8.png",
+    ],
+    githubUrl: "https://github.com/Darkjasmany/cash-management",
     featured: true,
     category: "professional",
     production: true,
@@ -85,30 +110,32 @@ export const projects: Project[] = [
       "PostgreSQL",
       "Reconocimiento Facial",
     ],
-    image: "/images/placeholder-project.svg",
-    images: [],
+    image: "/images/projects/futbol-1.png",
+    images: [
+      "/images/projects/futbol-2.png",
+      "/images/projects/futbol-3.png",
+      "/images/projects/futbol-4.png",
+      "/images/projects/futbol-5.png",
+      "/images/projects/futbol-6.png",
+      "/images/projects/futbol-7.png",
+      "/images/projects/futbol-8.png",
+      "/images/projects/futbol-9.png",
+      "/images/projects/futbol-10.png",
+      "/images/projects/futbol-11.png",
+      "/images/projects/futbol-12.png",
+      "/images/projects/futbol-13.png",
+      "/images/projects/futbol-14.png",
+      "/images/projects/futbol-15.png",
+      "/images/projects/futbol-16.png",
+      "/images/projects/futbol-17.png",
+      "/images/projects/futbol-18.png",
+    ],
     githubUrl: "https://github.com/Darkjasmany/futbol-system",
     featured: true,
     category: "professional",
     production: true,
   },
-  {
-    slug: "cash-management",
-    title: "Cash Management",
-    description:
-      "Aplicación web para la gestión y control de carga de información a la plataforma del Banco de Pichincha.",
-    longDescription:
-      "Plataforma full-stack desarrollada con TypeScript para el manejo de ingresos, egresos y reporting financiero en tiempo real. Incluye autenticación de usuarios, registro de transacciones, y generación de reportes.",
-    problemSolved:
-      "Generación centralizada para la obtención de deudas de los contribuyente, inluyendo valores nominales, intereses exactos calculados de manera individual en archivos en texto plano y excel.",
-    technologies: ["TypeScript", "React", "Nodejs", "Express", "Prisma", "PostgreSQL"],
-    image: "/images/placeholder-project.svg",
-    images: [],
-    githubUrl: "https://github.com/Darkjasmany/cash-management",
-    featured: true,
-    category: "professional",
-    production: true,
-  },
+
   {
     slug: "pokedex",
     title: "Pokédex Nacional",
