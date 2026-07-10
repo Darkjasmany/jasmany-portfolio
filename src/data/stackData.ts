@@ -74,6 +74,11 @@ export const stackData: StackData[] = [
     color: "bg-red-300/10 text-red-300 border-red-300/20",
     category: "backend_db",
   },
+  {
+    name: "supabase",
+    color: "bg-green-500/10 text-green-500 border-green-500/20",
+    category: "backend_db",
+  },
   { name: "git", color: "bg-red-500/10 text-red-500 border-red-500/20", category: "devops" },
   {
     name: "github",
@@ -89,7 +94,7 @@ export const stackData: StackData[] = [
     category: "devops",
   },
   { name: "docker", color: "bg-sky-500/10 text-sky-500 border-sky-500/20", category: "devops" },
-  // { name: "supabase" },
+  { name: "proxmox", color: "bg-gray-500/10 text-gray-500 border-gray-500/20", category: "devops" },
 ];
 
 // Origen de datos: Características
