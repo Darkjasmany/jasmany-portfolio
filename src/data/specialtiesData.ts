@@ -33,7 +33,7 @@ export const specialtiesData: Specialties[] = [
     category: "DevOps",
     title: "Infraestructura",
     icon: "infrastructure",
-    description: "Docker, Linux, VPN y administración de servidores.",
+    description: "Proxmos, Docker, Linux, VPN y administración de servidores.",
     longDescription:
       "Docker, Linux, VPN y administración de servidores enfocados en estabilidad, seguridad y despliegue continuo.",
   },

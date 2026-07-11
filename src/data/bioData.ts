@@ -4,7 +4,7 @@ export interface BioData {
 
 export const bioData: BioData = {
   paragraphs: [
-    "Ingeniero en Sistemas con una sólida trayectoria en el sector público, especializado en la administración de infraestructura tecnológica y el desarrollo de software moderno. Mi pasión radica en transformar procesos manuales en soluciones digitales eficientes y escalables.",
-    `Actualmente enfoco mi desarrollo en el ecosistema de <strong class="text-[var(--hero-text)] font-semibold">Node.js y React</strong>. Disfruto construyendo arquitecturas robustas y limpias, integrando sistemas complejos, y trabajando en entornos Linux. Soy un profesional orientado a la resolución de problemas bajo presión y con un fuerte compromiso por el aprendizaje autodidacta.`,
+    `<strong class="text-[var(--hero-text)] font-semibold">Ingeniero en Sistemas </strong> con más de 10 años de trayectoria liderando, administrando y optimizando infraestructura tecnológica en el sector público. Desde 2023, he evolucionado mi perfil técnico integrando el desarrollo de software moderno con el ecosistema de <strong class="text-[var(--hero-text)] font-semibold">Node.js, TypeScript y React.</strong>`,
+    `Mi verdadero valor diferencial reside en combinar una sólida base operativa <strong class="text-[var(--hero-text)] font-semibold">(redes, virtualización, seguridad y servidores Linux)</strong> con la creación de aplicaciones escalables. Esto me permite no solo escribir código funcional, sino comprender su despliegue y asegurar el ciclo de vida completo del software en entornos reales de producción.`,
   ],
 };
