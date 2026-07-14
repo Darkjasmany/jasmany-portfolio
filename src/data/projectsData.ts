@@ -54,9 +54,9 @@ export const projects: Project[] = [
     technologies: [
       "TypeScript",
       "React",
-      "Tailwind CSS",
       "Node.js",
       "Express",
+      "Tailwind CSS",
       "Prisma",
       "PostgreSQL",
       "JWT",
