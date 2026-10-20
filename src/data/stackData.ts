@@ -3,6 +3,7 @@ interface StackData {
   displayName?: string;
   color: string;
   category?: string;
+  description?: string;
 }
 
 // Origen de datos: Tecnologías principales
@@ -86,6 +87,54 @@ export const stackData: StackData[] = [
     color: "bg-gray-500/10 text-gray-500 border-gray-500/20",
     category: "devops",
   },
+  // Cloudflare: plataforma de infraestructura y despliegue
+  {
+    name: "cloudflare",
+    displayName: "Cloudflare",
+    color: "bg-orange-500/10 text-orange-500 border-orange-500/20",
+    category: "devops",
+    description: "Publicar y alojar la aplicación mediante Cloudflare Workers.",
+  },
+  {
+    name: "cloudflare-workers",
+    displayName: "Cloudflare Workers",
+    color: "bg-orange-500/10 text-orange-500 border-orange-500/20",
+    category: "devops",
+  },
+  // Integraciones de correo electrónico
+  {
+    name: "resend",
+    displayName: "Resend",
+    color: "bg-violet-500/10 text-violet-500 border-violet-500/20",
+    category: "backend_db",
+    description:
+      "Integración de correo electrónico para las notificaciones de formularios y solicitudes de contacto.",
+  },
+  // Mapas y geolocalización
+  {
+    name: "leaflet",
+    displayName: "Leaflet",
+    color: "bg-green-500/10 text-green-500 border-green-500/20",
+    category: "frontend",
+    description:
+      "Biblioteca de JavaScript para mapas interactivos, como el mapa de áreas de servicio de JBS Restoration.",
+  },
+  {
+    name: "openstreetmap",
+    displayName: "OpenStreetMap",
+    color: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20",
+    category: "frontend",
+    description:
+      "Proveedor de datos cartográficos. No es una biblioteca, sino una fuente de datos de mapas.",
+  },
+  // {
+  //   name: "nominatim",
+  //   displayName: "Nominatim",
+  //   color: "bg-teal-500/10 text-teal-500 border-teal-500/20",
+  //   category: "backend_db",
+  //   description:
+  //     "Servicio de geocodificación para convertir direcciones o nombres de lugares en coordenadas",
+  // },
   { name: "linux", color: "bg-gray-500/10 text-gray-500 border-gray-500/20", category: "devops" },
   { name: "bash", color: "bg-gray-500/10 text-gray-500 border-gray-500/20", category: "devops" },
   {

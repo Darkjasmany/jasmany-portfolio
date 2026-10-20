@@ -17,6 +17,61 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "jbs-restoration",
+    title: "JBS Restoration",
+    description:
+      "Plataforma web empresarial desarrollada a medida para una empresa de restauración y roofing en Estados Unidos, con sitio público, panel administrativo, gestión de contenido e integraciones en producción.",
+
+    longDescription:
+      "Solución web full-stack desarrollada de principio a fin para JBS Restoration, una empresa ubicada en Estados Unidos y especializada en roofing, siding y servicios de restauración. El proyecto va más allá de un sitio web corporativo: integra una experiencia pública orientada a captar clientes con un panel administrativo personalizado para gestionar el contenido y mantener actualizada la presencia digital del negocio. Incluye administración de proyectos, servicios, testimonios, configuración del sitio y áreas de cobertura; almacenamiento de imágenes; mapas interactivos; formularios de contacto para captar solicitudes de servicio; e integraciones para el envío de notificaciones por correo electrónico. Me encargué del desarrollo integral, desde la arquitectura y la interfaz responsive hasta la lógica de aplicación, la integración con la base de datos y los servicios externos, la configuración del dominio y el despliegue en producción mediante Cloudflare. La solución fue construida con Astro, React, TypeScript y Tailwind CSS, utilizando Supabase para la gestión de datos y almacenamiento.",
+
+    problemSolved:
+      "Proporciona a una empresa estadounidense de servicios de roofing y restauración una presencia digital profesional y una plataforma de administración adaptada a sus necesidades. Centraliza la actualización de servicios, proyectos, testimonios y zonas de cobertura, reduciendo la dependencia de cambios manuales en el código. También facilita la captación de solicitudes de clientes mediante formularios de contacto y presenta los servicios del negocio de forma clara en dispositivos móviles y de escritorio. El resultado es una solución personalizada, desarrollada y desplegada en producción, preparada para evolucionar junto con las necesidades de la empresa.",
+
+    technologies: [
+      "Astro",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Supabase",
+      "PostgreSQL",
+      "Supabase Storage",
+      "Cloudflare Workers",
+      "Wrangler",
+      "Resend",
+      "Leaflet",
+      "OpenStreetMap",
+      "REST API",
+    ],
+
+    image: "/images/projects/jbs-1.png",
+    images: [
+      "/images/projects/jbs-2.png",
+      "/images/projects/jbs-3.png",
+      "/images/projects/jbs-4.png",
+      "/images/projects/jbs-5.png",
+      "/images/projects/jbs-6.png",
+      "/images/projects/jbs-7.png",
+      "/images/projects/jbs-8.png",
+      "/images/projects/jbs-9.png",
+      "/images/projects/jbs-10.png",
+      "/images/projects/jbs-11.png",
+      "/images/projects/jbs-12.png",
+      "/images/projects/jbs-13.png",
+      "/images/projects/jbs-14.png",
+      "/images/projects/jbs-15.png",
+      "/images/projects/jbs-16.png",
+      "/images/projects/jbs-17.png",
+      "/images/projects/jbs-18.png",
+      "/images/projects/jbs-19.png",
+    ],
+
+    demoUrl: "https://TU-DOMINIO-REAL",
+    featured: true,
+    production: true,
+    category: "professional",
+  },
+  {
     slug: "portfolio",
     title: "Jasmany Portfolio",
     description:
