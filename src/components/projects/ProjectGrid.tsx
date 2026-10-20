@@ -20,7 +20,7 @@ const ProjectGrid: React.FC<ProjectGridProps> = ({ projects, onCardClick }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {projects.map(project => (
-        <ProjectCard project={project} onOpen={onCardClick} />
+        <ProjectCard key={project.title} project={project} onOpen={onCardClick} />
       ))}
     </div>
   );
