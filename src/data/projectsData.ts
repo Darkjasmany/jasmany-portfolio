@@ -66,7 +66,7 @@ export const projects: Project[] = [
       "/images/projects/jbs-19.png",
     ],
 
-    demoUrl: "https://TU-DOMINIO-REAL",
+    demoUrl: "https://www.jbsrestoration.com/",
     featured: true,
     production: true,
     category: "professional",

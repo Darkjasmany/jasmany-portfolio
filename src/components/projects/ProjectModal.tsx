@@ -60,7 +60,10 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
     if (e.target === e.currentTarget) onClose();
   };
 
-  const hasAnyLink = hasValidUrl(project.demoUrl) || hasValidUrl(project.githubUrl) || hasValidUrl(project.youtubeUrl);
+  const hasAnyLink =
+    hasValidUrl(project.demoUrl) ||
+    hasValidUrl(project.githubUrl) ||
+    hasValidUrl(project.youtubeUrl);
 
   return (
     <div
@@ -123,18 +126,14 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                   <h3 className="text-2xl font-bold text-[var(--hero-text)] mb-3">
                     Problema resuelto
                   </h3>
-                  <p className="leading-relaxed text-[var(--hero-desc)]">
-                    {project.problemSolved}
-                  </p>
+                  <p className="leading-relaxed text-[var(--hero-desc)]">{project.problemSolved}</p>
                 </section>
               )}
             </div>
 
             {/* Columna derecha: enlaces */}
             <aside className="flex flex-col gap-4">
-              <h3 className="text-xl font-bold text-[var(--hero-text)] mb-1">
-                Enlaces
-              </h3>
+              <h3 className="text-xl font-bold text-[var(--hero-text)] mb-1">Enlaces</h3>
 
               {hasValidUrl(project.demoUrl) && (
                 <a
@@ -143,7 +142,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                   rel="noopener noreferrer"
                   className="w-full py-3 rounded-xl bg-[var(--accent)] text-white text-center font-semibold text-sm hover:brightness-110 transition-all duration-200"
                 >
-                  Visitar Demo
+                  Ver Sitio
                 </a>
               )}
 
@@ -179,9 +178,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
           {/* ── GALERÍA: carrusel automático ── */}
           {allImages.length > 0 && (
             <section className="mt-8 pt-8">
-              <h3 className="text-2xl font-bold text-[var(--hero-text)] mb-6">
-                Galería
-              </h3>
+              <h3 className="text-2xl font-bold text-[var(--hero-text)] mb-6">Galería</h3>
 
               <div className="relative w-full h-[250px] md:h-[500px] rounded-2xl overflow-hidden group bg-black/5 border border-[var(--border)]">
                 {allImages.map((img, idx) => (
